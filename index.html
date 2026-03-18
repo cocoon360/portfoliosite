@@ -467,17 +467,6 @@
     }
 
     /* About theme: graphics from portfolio2 green section (no text)*/
-    @keyframes floatY {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-14px);
-      }
-    }
 
     .page-bg-graphics {
       display: none;
@@ -504,7 +493,6 @@
       height: 200px;
       background: rgba(255, 255, 255, 0.08);
       border-radius: 65% 35% 55% 45% / 45% 60% 40% 55%;
-      animation: floatY 7s ease-in-out infinite;
     }
 
     .about-blob2 {
@@ -515,7 +503,6 @@
       height: 130px;
       background: rgba(255, 255, 255, 0.05);
       border-radius: 40% 60% 45% 55% / 55% 40% 60% 45%;
-      animation: floatY 9s ease-in-out infinite reverse;
     }
 
     .about-rings {
@@ -667,23 +654,7 @@
       opacity: 0.5;
     }
 
-    .ability-rings {
-      animation: pulse-ring 8s ease-in-out infinite;
-    }
 
-    @keyframes pulse-ring {
-
-      0%,
-      100% {
-        opacity: 0.12;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: 0.2;
-        transform: scale(1.02);
-      }
-    }
 
     /* ═══ HUD (portfolio2 merge): top + bottom chrome ═══ */
     .hud-top {
@@ -1722,6 +1693,10 @@
       display: none;
     }
 
+    .profile-mobile-spacer {
+      display: none;
+    }
+
     /* Profile: floating text, no boxes — let background pop */
     .profile-bio {
       margin-bottom: 16px;
@@ -2745,7 +2720,20 @@
       }
 
       .main {
-        padding: 20px 20px 32px;
+        padding: 20px 20px 80px;
+      }
+
+      /* Mobile-only spacer: creates gap so face shows through background */
+      .profile-mobile-spacer {
+        display: block;
+        height: 190px;
+        width: 100%;
+        pointer-events: none;
+      }
+
+      /* Mobile: add padding to opened datacard scrollable content */
+      .entry-body {
+        padding-bottom: 60px;
       }
 
       .paradigm-columns,
@@ -3004,6 +2992,7 @@
               <h1 class="profile-name">Alexander Bereck</h1>
               <p class="profile-tagline">Game designer and developer building around how people actually
                 experience the world.</p>
+              <div class="profile-mobile-spacer"></div>
               <p class="profile-currently">Currently: Developing Birdsong in Unity, seeking more game design and development roles.</p>
             </div>
             <!--<div class="profile-hero-portrait datalog-portrait">
