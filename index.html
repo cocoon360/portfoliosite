@@ -808,6 +808,11 @@
       .hud-user {
         font-size: 9px;
       }
+
+      /* On mobile the bottom "network connected" label wraps and takes space. */
+      #btm-label {
+        display: none;
+      }
     }
 
     .btm-label {
@@ -2658,7 +2663,8 @@
       .entry-panel {
         grid-template-columns: 1fr;
         padding: 20px 18px 22px;
-        height: calc(100vh - 40px);
+        /* Overlay padding is 24px top/bottom on mobile; keep the panel fully visible. */
+        height: calc(100vh - 56px);
       }
 
       .entry-overlay {
@@ -2720,7 +2726,7 @@
       }
 
       .main {
-        padding: 20px 20px 80px;
+        padding: 20px 20px 84px;
       }
 
       /* Mobile-only spacer: creates gap so face shows through background */
@@ -2733,7 +2739,7 @@
 
       /* Mobile: add padding to opened datacard scrollable content */
       .entry-body {
-        padding-bottom: 60px;
+        padding-bottom: 68px;
       }
 
       .paradigm-columns,
