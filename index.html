@@ -857,6 +857,9 @@
       grid-template-columns: 260px 1fr;
       height: 100vh;
       max-height: 100vh;
+      /* Use dynamic viewport height on mobile browsers (iPhone) */
+      height: 100dvh;
+      max-height: 100dvh;
       padding-top: 58px;
       padding-bottom: 30px;
       box-sizing: border-box;
@@ -2429,6 +2432,7 @@
       font-family: var(--body);
       z-index: 1;
       height: calc(100vh - 120px);
+      height: calc(100dvh - 120px);
       overflow: hidden;
     }
 
@@ -2664,11 +2668,14 @@
         grid-template-columns: 1fr;
         padding: 20px 18px 22px;
         /* Overlay padding is 24px top/bottom on mobile; keep the panel fully visible. */
-        height: calc(100vh - 56px);
+        height: calc(100vh - 92px - env(safe-area-inset-bottom));
+        height: calc(100dvh - 92px - env(safe-area-inset-bottom));
+        max-height: calc(100vh - 92px - env(safe-area-inset-bottom));
+        max-height: calc(100dvh - 92px - env(safe-area-inset-bottom));
       }
 
       .entry-overlay {
-        padding: 24px 12px;
+        padding: 24px 12px calc(24px + env(safe-area-inset-bottom));
         align-items: flex-start;
       }
     }
@@ -2739,7 +2746,7 @@
 
       /* Mobile: add padding to opened datacard scrollable content */
       .entry-body {
-        padding-bottom: 68px;
+        padding-bottom: calc(98px + env(safe-area-inset-bottom));
       }
 
       .paradigm-columns,
