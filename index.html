@@ -275,7 +275,8 @@
     body[data-theme="bepresent"] .page-bg {
       background: #DC3C9A;
     }
-/* 
+
+    /* 
     body[data-theme="bepresent"] .page-bg::before {
       content: '';
       position: absolute;
@@ -2400,9 +2401,9 @@
       inset: 0;
       z-index: 120;
       display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
+      align-items: stretch;
+      justify-content: stretch;
+      padding: 0;
       background: radial-gradient(circle at top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.96) 55%, rgba(0, 0, 0, 0.98) 100%);
     }
 
@@ -2416,14 +2417,20 @@
     }
 
     .entry-panel {
-      position: relative;
-      max-width: 880px;
-      width: 100%;
+      position: fixed;
+      top: env(safe-area-inset-top);
+      left: env(safe-area-inset-left);
+      right: env(safe-area-inset-right);
+      bottom: env(safe-area-inset-bottom);
+      width: auto;
+      max-width: none;
+      border-radius: 0;
       background:
         radial-gradient(circle at top left, rgba(250, 252, 255, 0.95) 0%, rgba(230, 234, 244, 0.96) 45%, rgba(214, 220, 234, 0.98) 100%);
-      border: 1px solid rgba(32, 40, 60, 0.35);
-      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.85);
-      padding: 26px 30px 26px;
+      border: none;
+      border-top: 1px solid rgba(32, 40, 60, 0.2);
+      box-shadow: none;
+      padding: 26px 30px 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -2431,8 +2438,7 @@
       color: rgba(18, 24, 40, 0.96);
       font-family: var(--body);
       z-index: 1;
-      height: calc(100vh - 120px);
-      height: calc(100dvh - 120px);
+      height: auto;
       overflow: hidden;
     }
 
@@ -2510,11 +2516,14 @@
       font-size: 14px;
       line-height: 1.8;
       color: rgba(32, 42, 70, 0.96);
-      max-width: none;
+      max-width: min(52rem, 100%);
       margin-top: 4px;
+      margin-left: auto;
+      margin-right: auto;
       flex: 1 1 0;
       overflow-y: auto;
       padding-right: 12px;
+      padding-bottom: calc(28px + env(safe-area-inset-bottom));
     }
 
     .entry-body p {
@@ -2523,6 +2532,172 @@
 
     .entry-body p:last-child {
       margin-bottom: 0;
+    }
+
+    /* Long-form document entries (e.g. embedded white papers) */
+    .entry-content.doc-mode .entry-header-title,
+    .entry-content.doc-mode .entry-header-tagline {
+      display: none;
+    }
+
+    .entry-body--whitepaper {
+      font-family: var(--serif);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .entry-doc__masthead {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(80, 96, 132, 0.35);
+    }
+
+    .entry-doc__h1 {
+      font-family: var(--head);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(25, 32, 52, 0.98);
+      margin: 0 0 0.35rem;
+      line-height: 1.35;
+    }
+
+    .entry-doc__h1--long {
+      font-size: clamp(0.78rem, 2.1vw, 0.98rem);
+      letter-spacing: 0.085em;
+      line-height: 1.4;
+      max-width: 40rem;
+      margin-left: auto;
+      margin-right: auto;
+      text-wrap: balance;
+    }
+
+    .work-section {
+      margin-top: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      padding: 14px 18px 6px;
+    }
+
+    .work-section__label {
+      font-family: var(--hud);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 4px;
+    }
+
+    .work-section__desc {
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.48);
+      margin-bottom: 18px;
+      font-style: italic;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 14px;
+    }
+
+    .school-work-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .entry-doc__deck {
+      font-size: 1rem;
+      font-style: italic;
+      color: rgba(60, 72, 102, 0.95);
+      margin: 0 0 0.5rem;
+      line-height: 1.4;
+    }
+
+    .entry-doc__byline {
+      font-family: var(--hud);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(80, 96, 132, 0.9);
+      margin: 0;
+    }
+
+    .entry-doc h2 {
+      font-family: var(--head);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(35, 44, 72, 0.96);
+      margin: 1.65rem 0 0.85rem;
+      padding-top: 0.25rem;
+      border-top: 1px solid rgba(110, 120, 140, 0.45);
+    }
+
+    .entry-doc h2:first-of-type {
+      margin-top: 0.5rem;
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .entry-doc-figure {
+      margin: 1.15rem 0;
+      padding: 0.65rem 0.75rem;
+      background: rgba(255, 255, 255, 0.45);
+      border: 1px solid rgba(90, 110, 150, 0.35);
+    }
+
+    .entry-doc-figure figcaption {
+      font-size: 13px;
+      line-height: 1.55;
+      color: rgba(55, 68, 98, 0.92);
+      font-style: italic;
+    }
+
+    .entry-doc__rule {
+      border: none;
+      border-top: 1px dashed rgba(110, 120, 140, 0.45);
+      margin: 1.25rem 0;
+    }
+
+    .entry-doc .pull-quote {
+      font-style: italic;
+      font-size: 1.02em;
+      margin: 1rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid rgba(90, 110, 150, 0.55);
+      color: rgba(40, 52, 82, 0.95);
+    }
+
+    .entry-doc__refs {
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(55, 68, 98, 0.9);
+    }
+
+    .entry-doc__refs ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.15rem;
+    }
+
+    .entry-doc__refs li {
+      margin-bottom: 0.45rem;
+    }
+
+    .entry-body--whitepaper a {
+      color: rgba(38, 72, 128, 0.98);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .entry-body--whitepaper a:hover {
+      color: rgba(18, 42, 88, 1);
+    }
+
+    .entry-body--whitepaper sup {
+      font-size: 0.72em;
+      vertical-align: super;
+      padding-left: 1px;
+      font-family: var(--serif);
     }
 
     .entry-meta-row {
@@ -2665,29 +2840,13 @@
 
     @media (max-width: 780px) {
       .entry-panel {
-        grid-template-columns: 1fr;
-        padding: 20px 18px 22px;
-        /* Overlay padding is 24px top/bottom on mobile; keep the panel fully visible. */
-        position: fixed;
-        top: env(safe-area-inset-top);
-        left: 0;
-        right: 0;
-        bottom: env(safe-area-inset-bottom);
-        width: 100%;
-        max-width: none;
-        height: auto;
-        border-radius: 0;
-        box-shadow: none;
-      }
-
-      .entry-overlay {
-        padding: 0;
-        align-items: stretch;
-        justify-content: stretch;
+        padding: 20px 18px 18px;
       }
 
       .entry-body {
-        /* In fullscreen mode, we don't want extra "breathing room" at the bottom. */
+        max-width: none;
+        margin-left: 0;
+        margin-right: 0;
         padding-bottom: calc(54px + env(safe-area-inset-bottom));
       }
     }
@@ -2754,11 +2913,6 @@
         height: 190px;
         width: 100%;
         pointer-events: none;
-      }
-
-      /* Mobile: add padding to opened datacard scrollable content */
-      .entry-body {
-        padding-bottom: calc(54px + env(safe-area-inset-bottom));
       }
 
       .paradigm-columns,
@@ -3018,22 +3172,30 @@
               <p class="profile-tagline">Game designer and developer building around how people actually
                 experience the world.</p>
               <div class="profile-mobile-spacer"></div>
-              <p class="profile-currently">Currently: Developing Birdsong in Unity, seeking more game design and development roles.</p>
+              <p class="profile-currently">Currently: Developing Birdsong in Unity, seeking more game design and
+                development roles.</p>
             </div>
             <!--<div class="profile-hero-portrait datalog-portrait">
           <div class="portrait-label">Alexander Bereck</div>
         </div>-->
           </header>
           <div class="profile-bio">
-            <p>A game designer who creates perceptual worlds that feel more alive than our own reality. My work combines literary analysis with user research to build experiences our reality cannot provide— spaces where becoming yourself feels possible again.</p>
+            <p>A game designer who creates perceptual worlds that feel more alive than our own reality. My work combines
+              literary analysis with user research to build experiences our reality cannot provide— spaces where
+              becoming yourself feels possible again.</p>
             <!--
           <div class="entry-quote">If you can imagine a world, believe in it...</div>
           -->
           </div>
           <div class="profile-bio">
-            <p>Experience spans ethnographic fieldwork (222), game systems design (BePresent), and independend game development (Birdsong). Proven ability to move between research, design, and hands-on development in Unity and Blender.</p>
+            <p>Experience spans ethnographic fieldwork (222), game systems design (BePresent), and independent game
+              development (Birdsong). Proven ability to move between research, design, and hands-on development in Unity
+              and Blender.</p>
             <h3>How I work</h3>
-            <p>I think of games as umwelten— perceptual worlds that let us experience what our reality cannot provide. The development of video games allows us to create new worlds and experience perspectives in an entirely new way. My work connects that philosophical foundation to the practical systems that make those worlds feel honest, lived-in, and worth defending.</p>
+            <p>I think of games as umwelten— perceptual worlds that let us experience what our reality cannot provide.
+              The development of video games allows us to create new worlds and experience perspectives in an entirely
+              new way. My work connects that philosophical foundation to the practical systems that make those worlds
+              feel honest, lived-in, and worth defending.</p>
 
           </div>
 
@@ -3052,7 +3214,7 @@
           </div>
           <!-- Birdsong: intro → datacards -->
           <div class="sub-panel active" data-subpanel="birdsong" data-group="datalogs">
-        <div class="panel-label">Mystery adventure · College-town ensemble</div>
+            <div class="panel-label">Mystery adventure · College experience</div>
             <div class="panel-title">Birdsong</div>
             <div class="panel-desc">
               A third‑person, single‑player mystery adventure set in a picturesque early‑2010s college town.<br><br>You
@@ -3061,7 +3223,11 @@
             </div>
             <div class="info-panel" style="margin-top: 2px; padding-top: 2px;">
               <h3>Project status</h3>
-              <p>Right now Birdsong is in the narrative design and systems prototyping phase. The core cast (8 fully-realized characters with detailed profiles, core needs, and relationship dynamics), a complete narrative structure with 4 acts spanning 13-20 hours, and an environment in development with map prototyping are defined. What's next is turning those ideas into scenes, choices, and small daily interactions that feel honest to college life.</p>
+              <p>Right now Birdsong is in the narrative design and systems prototyping phase. The core cast (8
+                fully-realized characters with detailed profiles, core needs, and relationship dynamics), a complete
+                narrative structure with 4 acts spanning 13-20 hours, and an environment in development with map
+                prototyping are defined. What's next is turning those ideas into scenes, choices, and small daily
+                interactions that feel honest to college life.</p>
               <p>Design work is focused on how investigation and ordinary days interlock— what it feels like to follow a
                 rumor between classes, how the game guides player choices, and how much of the mystery you can
                 uncover without ever deliberately "going sleuth mode"— until you have to. <br><br> Development moves
@@ -3104,12 +3270,22 @@
             <div class="panel-label">Mobile · Wellness · Game design</div>
             <div class="panel-title">BePresent</div>
             <div class="panel-desc">
-              A collaboration with a digital wellness team on an app that helps people trade unintentional screen time for small, deliberate moments of being present. My work focused on turning their mission into a clear, gamified product using language that feels encouraging rather than self conscious.
+              A collaboration with a digital wellness team on an app that helps people trade unintentional screen time
+              for small, deliberate moments of being present. My work focused on turning their mission into a clear,
+              gamified product using language that feels encouraging rather than self conscious.
             </div>
             <div class="info-panel">
               <h3>Designing for life reclamation</h3>
-              <p>BePresent already had a strong vision: support people who feel anxious about their screentime but still want their phone to be part of a meaningful life. I helped develop a design direction that reframes the entire conversation from "I need to use my phone less" to "I am challenging myself to do fulfilling things"— shifting the approach from passive guilt to active possibility.</p>
-              <p>The three‑module structure (ACT, WORLD, MEMORIES) turns this into a progression system that scales from simple daily moments to life-changing adventures. Activities earn experience across three dimensions— Life Spirit (presence time), Connection Depth (social activities), and Courage (difficulty)— creating a multifaceted path where users discover what kinds of challenges resonate with them. Individual progress feeds into a collective world presence metric, so every completed session illuminates a shared mission.</p>
+              <p>BePresent already had a strong vision: support people who feel anxious about their screentime but still
+                want their phone to be part of a meaningful life. I helped develop a design direction that reframes the
+                entire conversation from "I need to use my phone less" to "I am challenging myself to do fulfilling
+                things"— shifting the approach from passive guilt to active possibility.</p>
+              <p>The three‑module structure (ACT, WORLD, MEMORIES) turns this into a progression system that scales from
+                simple daily moments to life-changing adventures. Activities earn experience across three dimensions—
+                Life Spirit (presence time), Connection Depth (social activities), and Courage (difficulty)— creating a
+                multifaceted path where users discover what kinds of challenges resonate with them. Individual progress
+                feeds into a collective world presence metric, so every completed session illuminates a shared mission.
+              </p>
             </div>
             <div class="bp-card js-entry-trigger" data-entry-id="bepresent-role">
               <h3>My role at BePresent</h3>
@@ -3166,7 +3342,7 @@
                 more structured, embodied setting.</p>
               <p>After the study, I joined the team as a growth specialist: turning field insights into changes to
                 onboarding and communication, collaborating with creators, and helping to
- bring 222 to more global cities.</p>
+                bring 222 to more global cities.</p>
             </div>
 
             <div class="out-card js-entry-trigger" data-entry-id="222-overview" data-project="222">
@@ -3239,10 +3415,37 @@
           </div>
           <!-- Other projects sub-panel -->
           <div class="sub-panel" data-subpanel="essays" data-group="datalogs">
-            <div class="panel-label">Other projects</div>
-            <div class="panel-title">Under Construction</div>
+            <div class="panel-title">Blog posts and Other projects</div>
             <div class="panel-desc">
-              Additional projects and writing coming soon.
+              Additional projects updated regularly.
+            </div>
+
+            <div class="work-section">
+              <div class="work-section__label">Research · UX</div>
+              <div class="work-section__desc">Showcase of abridged study documents.</div>
+              <div class="school-work-cards">
+                <div class="out-card js-entry-trigger" data-entry-id="uxr-222-short"
+                  data-project="research">
+                  <h3>222 User Experience Research (Short Version)</h3>
+                  <p>Ethnographic research conducted on 222, an AI-powered in-person social media platform.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="work-section">
+              <div class="work-section__label">Game Assets · 3D & Design</div>
+              <div class="work-section__desc">Character models, environments, and props created for game projects. Assets showcase technical modeling, texturing, and art direction skills.</div>
+              <div class="school-work-cards">
+                <!-- Future game asset cards will be added here -->
+              </div>
+            </div>
+
+            <div class="work-section">
+              <div class="work-section__label">School · Coursework</div>
+              <div class="work-section__desc">Throughout college I pushed every open-ended assignment I could toward
+                video games, building the same critical and design vocabulary in coursework that I rely on in
+                professional
+                practice. More pieces will be added as they are typeset for the site.</div>
             </div>
           </div>
         </div>
@@ -3269,7 +3472,8 @@
               <div class="sk-group">
                 <div class="sk-group-title">Design &amp; Development</div>
                 <div class="sk-group-orbs">
-                  <div class="sorb"><span class="sorb-dash">—</span>Narrative Design <span class="skill-pt">105 SP</span>
+                  <div class="sorb"><span class="sorb-dash">—</span>Narrative Design <span class="skill-pt">105
+                      SP</span>
                   </div>
                   <div class="sorb"><span class="sorb-dash">—</span>Game Design <span class="skill-pt">107 SP</span>
                   </div>
@@ -3328,7 +3532,8 @@
                       SP</span></div>
                   <div class="sorb"><span class="sorb-dash">—</span>Accessibility Research <span class="skill-pt">71
                       SP</span></div>
-                  <div class="sorb"><span class="sorb-dash">—</span>Mandarin Language<span class="skill-pt">69 SP</span></div>
+                  <div class="sorb"><span class="sorb-dash">—</span>Mandarin Language<span class="skill-pt">69 SP</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -3379,6 +3584,143 @@
       <a href="AlexanderResumeE.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
     </div>
   </footer>
+
+  <template id="tpl-uxr-222-short">
+    <div class="entry-doc">
+      <header class="entry-doc__masthead">
+        <h1 class="entry-doc__h1" id="entry-doc-h1">222 User Experience Research (Short Version)</h1>
+        <p class="entry-doc__deck">Ethnographic Study</p>
+        <p class="entry-doc__byline">Alexander Bereck | UX Research | Spring 2025</p>
+      </header>
+
+      <h2>Research Overview</h2>
+
+      <p><strong>Context:</strong> 222 is an AI-native social platform that curates in-person events. Users create profiles by answering questions about their interests and social goals. The app then arranges restaurant reservations where 5-7 people meet for dinner before moving to a second location where multiple groups converge over drinks and an activity.</p>
+
+      <p><strong>What Makes It Different:</strong> Profiles are never shown in a public feed. They live behind the scenes, using AI to shape group composition and follow-up nudges rather than something users perform alone. This removes the performative layer common to most social platforms.</p>
+
+      <p><strong>Research Question:</strong> How do users experience semi-structured social products when the stated purpose conflicts with their underlying motivations? What does this reveal about the gap between product design and actual user behavior?</p>
+
+      <h2>Methodology</h2>
+
+      <p><strong>Approach:</strong> Ethnographic participant observation with semi-structured interviews<br>
+      <strong>Duration:</strong> Multiple months of field research across 60+ events<br>
+      <strong>Method:</strong> Treated 222 events as field sites&mdash;taking notes, mapping social graphs, interviewing participants about why they kept showing up.</p>
+
+      <p><strong>Data Collection:</strong></p>
+      <ul>
+        <li>60+ events as participant-observer</li>
+        <li>Social dynamics, interaction patterns, behavioral rhythms</li>
+        <li>Interviews exploring when people last made a new friend, how they relate to dating apps, what they hope for when they RSVP</li>
+        <li>Patterns in the transition between dinner and second location: how often people stayed with their table versus branching out, when they decided they had &ldquo;enough&rdquo; socializing</li>
+      </ul>
+
+      <p><strong>Participant Profile:</strong></p>
+      <ul>
+        <li>Regular users and first-timers</li>
+        <li>Young adults (21-35) navigating difficulty forming social connections</li>
+        <li>Various relationship statuses and social motivations</li>
+      </ul>
+
+      <h2>Interview Questions</h2>
+
+      <p>Questions focused on understanding users&rsquo; relationship to social connection and the role of structured versus organic socialization:</p>
+
+      <ul>
+        <li>When was the last time you made a new friend?</li>
+        <li>Have you ever made a friend or romantic partner by approaching someone you didn&rsquo;t know? What about being approached?</li>
+        <li>Do you use dating apps? How often do you go on dates from them?</li>
+        <li>How often do you attend 222 events? Have you made friends you&rsquo;ve spent time with outside the events?</li>
+        <li>Have you gone on dates with people from 222?</li>
+        <li>What are your thoughts on 222&rsquo;s role in helping you meet new people? Does it alleviate social anxiety, or are we using it as a crutch?</li>
+        <li>What should we do about the difficulty of making new bonds today?</li>
+      </ul>
+
+      <h2>Key Findings</h2>
+
+      <h3>1. Official vs. Lived Use</h3>
+
+      <p><strong>Observation:</strong> The app insists it is not a dating product; in practice, participants talk about it in romantic or flirtation terms&mdash;even in platonic contexts.</p>
+
+      <p><strong>Insight:</strong> This dissonance becomes the research site itself: a space to study the negotiations people make between stated rules and unspoken practices they invent together.</p>
+
+      <p><strong>Impact:</strong> Understanding this gap informed communication strategy&mdash;acknowledging the romantic subtext without officially endorsing it, allowing users to define their own participation.</p>
+
+      <h3>2. Seeking vs. Attracting</h3>
+
+      <p><strong>Framework:</strong> Across platforms, some behaviors feel like &ldquo;seeking&rdquo; (reaching out, initiating) and others like &ldquo;attracting&rdquo; (posting and waiting). In actuality, there is no pure attracting online: every post, profile, and story is an active bid for attention.</p>
+
+      <p><strong>How 222 Differs:</strong> You make one clear seeking move by RSVPing and showing up; after that, the app shoulders the structural work&mdash;who you sit with, how the night flows, when you&rsquo;re invited back.</p>
+
+      <p><strong>Application:</strong> This lens made it easier to see which design choices made people feel exposed versus secure, and how small shifts in timing or language could turn participation from &ldquo;trying too hard&rdquo; into &ldquo;saying yes to something already there for you.&rdquo;</p>
+
+      <p><strong>Impact:</strong> This framework became shared organizational language for evaluating product features and communication strategies.</p>
+
+      <h3>3. Friction as Feature and Bug</h3>
+
+      <p><strong>Observation:</strong> Push notifications arrive at inconvenient times by design; saying yes means saying no to something else in your life. RSVPing doesn&rsquo;t guarantee a spot, but blocks off your calendar anyway, potentially leaving you without plans at all.</p>
+
+      <p><strong>Finding:</strong> This friction filtered for people hungry for novelty but excluded those already trying to balance many post-work activities&mdash;social or not.</p>
+
+      <p><strong>Recommendation:</strong> Consider tiered notification preferences or advance scheduling options to reduce calendar anxiety while maintaining spontaneity.</p>
+
+      <h3>4. Field Patterns</h3>
+
+      <p><strong>Recurring Dynamics:</strong> Some nights the table finds its rhythm within minutes; others build more slowly as people figure out what they want from the evening. Patterns emerge&mdash;who takes the lead, who steers topics, who hangs back until a shared reference appears.</p>
+
+      <p><strong>Insight:</strong> Treating each event as a field site made it possible to see repeated social rhythms rather than isolated anecdotes, and to understand how much of the evening is shaped by design versus accumulated social fatigue from people&rsquo;s lives.</p>
+
+      <p><strong>Application:</strong> These patterns informed group composition algorithms and event pacing decisions.</p>
+
+      <h3>5. Connection Beyond the App</h3>
+
+      <p><strong>Observation:</strong> Many described tension between enjoying the novelty of always-new groups and wanting a smaller circle to return to. Several mentioned the most meaningful connections happened after the app&rsquo;s work was done&mdash;in texts, group chats, and repeat hangouts that grew from a single table.</p>
+
+      <p><strong>Insight:</strong> Their answers sketch a picture of a generation rebuilding casual connection on top of technology-reliant systems, using products like 222 as a bridge rather than a perfect destination.</p>
+
+      <p><strong>Recommendation:</strong> Consider features that support post-event connection without forcing it&mdash;optional group chat creation, &ldquo;reconnect with this table&rdquo; prompts, or visibility into who else is attending future events.</p>
+
+      <h2>Research Conclusions</h2>
+
+      <h3>What 222 Revealed</h3>
+
+      <p>Participating as both researcher and subject made loneliness feel less like a personal failing and more like a shared condition. The problem wasn&rsquo;t any individual&rsquo;s hometown or college&mdash;it was the era.</p>
+
+      <p>Any product that promises to fix that condition ends up exposing it instead. 222 became a way to watch a generation negotiate how much vulnerability they&rsquo;re willing to risk for the chance at new connection.</p>
+
+      <h3>Apps and the New Third Place</h3>
+
+      <p>Classic third places&mdash;caf&eacute;s, bars, community centers&mdash;ask you to wander in on your own and slowly become a regular. 222 inverts that flow: the invitation arrives first, then you step into a space already framed as an event with a start time, end time, and loosely shared purpose.</p>
+
+      <p>The more honest conclusion is that 222 is part of a patchwork: one tool among many that helps people find each other in a fragmented city, without pretending it can replace the slow, unglamorous work of building a real third place, let alone long-term interpersonal bonds.</p>
+
+      <h3>Study Outcomes</h3>
+
+      <p>What emerged was a portrait of young adults who still wanted spontaneity but needed more structure to reach it. 222&rsquo;s constraint-driven design&mdash;one event, one time, one chance to join&mdash;became a way to study how much guidance people actually want around meeting new people.</p>
+
+      <p>Rather than proving one model &ldquo;works&rdquo;, the study surfaced a more nuanced conclusion: different people need different amounts of scaffolding at different points in their lives, and good social products make it easy to step closer or further away without shame.</p>
+
+      <h2>Business Impact</h2>
+
+      <p>This research was conducted as independent ethnographic fieldwork, with findings later informing growth strategy and communication decisions when I joined the 222 team.</p>
+
+      <p><strong>Key Contributions:</strong></p>
+      <ul>
+        <li>The &ldquo;seeking vs. attracting&rdquo; framework became shared organizational language for evaluating product features</li>
+        <li>Insights about official vs. lived use informed marketing messaging and community guidelines</li>
+        <li>Friction analysis led to discussions about notification timing and RSVP mechanics</li>
+        <li>Field patterns informed AI-driven group composition improvements</li>
+      </ul>
+
+      <h2>Methodology Notes</h2>
+
+      <p><strong>Dual Role:</strong> Conducting research as both participant and subject created unique access to the lived experience while requiring careful attention to observational bias.</p>
+
+      <p><strong>Data Limitations:</strong> Research focused on regular users and those willing to be interviewed. The voices of people who tried 222 once and never returned are underrepresented. Future research would benefit from exit interviews or follow-up surveys with one-time users.</p>
+
+      <p><strong>Ethical Considerations:</strong> All participants were informed of the research context. Quotes and observations were anonymized. The dual role as participant-researcher was disclosed to the 222 team.</p>
+    </div>
+  </template>
 
   <script>
     (function () {
@@ -3512,6 +3854,13 @@
       const entryPageStatus = document.getElementById('entry-page-status');
       const entryPrevBtn = document.getElementById('entry-prev');
       const entryNextBtn = document.getElementById('entry-next');
+      const entryPanel = overlay?.querySelector('.entry-panel');
+      const entryContent = overlay?.querySelector('.entry-content');
+
+      function getEntryTemplateHtml(templateId) {
+        const el = templateId && document.getElementById(templateId);
+        return el ? el.innerHTML : '';
+      }
 
       const ENTRY_DATA = {
         'birdsong-overview': {
@@ -3717,9 +4066,9 @@
             'Taken together, their answers sketch a picture of a generation trying to rebuild casual connection on top of systems that are anything but casual, using products like 222 as a bridge rather than a destination.'
           ]
         },
-        '222-antisocial': {
+        '222-study': {
           meta: '222 · ETHNOGRAPHIC STUDY',
-          title: 'Antisocial is the New Social',
+          title: 'Ethnographic Study of 222',
           tagline: 'Inside a semi-structured third place built from push notifications and strangers.',
           body: [
             'Over multiple months, I treated 222 events as field sites: taking notes, mapping social graphs, and interviewing participants about why they kept showing up.',
@@ -3753,6 +4102,13 @@
             'Participating as both researcher and subject made the loneliness feel less like a personal failing and more like a shared condition.',
             'Any product that promises to fix that condition ends up exposing it instead. 222 became a way to watch a generation negotiate how much vulnerability they are willing to risk for the chance at new connection.'
           ]
+        },
+        'uxr-222-short': {
+          meta: 'RESEARCH · UX',
+          title: '222 User Experience Research (Short Version)',
+          tagline: 'Ethnographic study of semi-structured social products.',
+          docMode: true,
+          templateId: 'tpl-uxr-222-short'
         },
         'essay-mourning-doves': {
           meta: 'ESSAY · FEATURED',
@@ -3823,8 +4179,23 @@
         entryMeta.textContent = data.meta || '';
         entryTitle.textContent = data.title || '';
         entryTagline.textContent = data.tagline || '';
+
+        if (data.docMode && entryContent) {
+          entryContent.classList.add('doc-mode');
+          if (entryPanel) entryPanel.setAttribute('aria-labelledby', 'entry-doc-h1');
+        } else if (entryContent) {
+          entryContent.classList.remove('doc-mode');
+          if (entryPanel) entryPanel.setAttribute('aria-labelledby', 'entry-title');
+        }
+
+        entryBody.className = 'entry-body';
         entryBody.innerHTML = '';
-        if (Array.isArray(data.body)) {
+        if (data.templateId) {
+          entryBody.classList.add('entry-body--whitepaper');
+          entryBody.innerHTML = getEntryTemplateHtml(data.templateId);
+        } else if (data.bodyHtml) {
+          entryBody.innerHTML = data.bodyHtml;
+        } else if (Array.isArray(data.body)) {
           data.body.forEach(t => {
             const p = document.createElement('p');
             p.textContent = t;
