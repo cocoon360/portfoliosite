@@ -61,6 +61,12 @@
       --accent-subtle: rgba(232, 196, 104, 0.15);
     }
 
+    body[data-theme="datalogs"][data-datalog="umwelten"] {
+      --accent: rgba(94, 124, 233, 0.75);
+      --accent-dim: rgba(183, 167, 255, 0.75);
+      --accent-subtle: rgba(183, 167, 255, 0.15);
+    }
+
     /* Birdsong: compressed two-column layout */
     body[data-theme="datalogs"][data-datalog="birdsong"] .panel-desc {
       margin-bottom: 12px;
@@ -413,6 +419,31 @@
       background: radial-gradient(circle at 30% 70%, rgba(125, 201, 195, 0.08) 0%, transparent 45%),
         linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, transparent 40%, rgba(125, 201, 195, 0.06) 100%),
         linear-gradient(90deg, rgba(0, 0, 0, 0.12) 0%, transparent 35%);
+      pointer-events: none;
+    }
+
+    /* Umwelten — light "paper" background (slightly darker than white) */
+    body[data-theme="datalogs"][data-datalog="umwelten"] .page-bg {
+      background: linear-gradient(165deg, #F1F2F6 0%, #ECEEF4 45%, #E5E8F0 100%);
+    }
+
+    body[data-theme="datalogs"][data-datalog="umwelten"] .page-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(800px 520px at 25% 10%, rgba(183, 167, 255, 0.10) 0%, transparent 55%),
+        radial-gradient(760px 560px at 80% 85%, rgba(183, 167, 255, 0.08) 0%, transparent 60%),
+        linear-gradient(180deg, rgba(10, 16, 28, 0.06) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    body[data-theme="datalogs"][data-datalog="umwelten"] .page-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(0deg, rgba(10, 16, 28, 0.018) 0px, rgba(10, 16, 28, 0.018) 1px, transparent 1px, transparent 6px);
+      opacity: 0.55;
       pointer-events: none;
     }
 
@@ -1504,6 +1535,59 @@
       color: rgba(222, 228, 238, 0.95);
     }
 
+    /* Umwelten: light/white background — switch text to dark for readability */
+    body[data-theme="datalogs"][data-datalog="umwelten"] .main {
+      color: rgba(20, 26, 40, 0.92);
+    }
+
+    body[data-theme="datalogs"][data-datalog="umwelten"] .panel-title {
+      color: rgba(12, 18, 32, 0.96);
+    }
+
+    body[data-theme="datalogs"][data-datalog="umwelten"] .panel-label {
+      color: rgba(55, 65, 81, 0.78);
+    }
+
+    body[data-theme="datalogs"][data-datalog="umwelten"] .panel-desc {
+      color: rgba(31, 41, 55, 0.82);
+    }
+
+    body[data-theme="datalogs"][data-datalog="umwelten"] .info-panel h3,
+    body[data-theme="datalogs"][data-datalog="umwelten"] .bp-card h3,
+    body[data-theme="datalogs"][data-datalog="umwelten"] .out-card h3,
+    body[data-theme="datalogs"][data-datalog="umwelten"] .moogle-card h3 {
+      color: rgba(17, 24, 39, 0.92);
+    }
+
+    body[data-theme="datalogs"][data-datalog="umwelten"] .info-panel p,
+    body[data-theme="datalogs"][data-datalog="umwelten"] .bp-card p,
+    body[data-theme="datalogs"][data-datalog="umwelten"] .out-card p,
+    body[data-theme="datalogs"][data-datalog="umwelten"] .moogle-card p {
+      color: rgba(31, 41, 55, 0.86);
+    }
+
+    body[data-theme="datalogs"][data-datalog="umwelten"] .highlight,
+    body[data-theme="datalogs"][data-datalog="umwelten"] .quote,
+    body[data-theme="datalogs"][data-datalog="umwelten"] .excerpt {
+      color: rgba(31, 41, 55, 0.86);
+      border-color: rgba(15, 23, 42, 0.14);
+    }
+
+    body[data-theme="datalogs"][data-datalog="umwelten"] .info-panel+.info-panel {
+      border-top-color: rgba(15, 23, 42, 0.12);
+    }
+
+    body[data-theme="datalogs"][data-datalog="umwelten"] .sub-tab {
+      color: rgba(31, 41, 55, 0.82);
+      border-color: rgba(15, 23, 42, 0.12);
+    }
+
+    body[data-theme="datalogs"][data-datalog="umwelten"] .sub-tab.active {
+      color: rgba(12, 18, 32, 0.96);
+      border-bottom-color: rgba(12, 18, 32, 0.35);
+      background: rgba(15, 23, 42, 0.06);
+    }
+
     /* Datalogs: floating text only — no boxes, so Frutiger Metro graphics pop */
     body[data-theme="datalogs"] .moogle-card {
       background: transparent;
@@ -1693,7 +1777,7 @@
     .profile-currently {
       font-size: 12px;
       line-height: 1.4;
-      color: rgba(125, 201, 195, 0.75);
+      color: rgba(244, 216, 113, 0.75);
       margin-top: 12px;
       font-style: italic;
     }
@@ -2856,6 +2940,25 @@
       cursor: pointer;
     }
 
+    /* Inline hypertext triggers (Twine-ish) */
+    .hyperlink-trigger {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      cursor: pointer;
+    }
+
+    .hyperlink-trigger:hover {
+      color: color-mix(in srgb, var(--accent) 78%, #ffffff 22%);
+    }
+
+    .hyperlink-trigger:focus-visible {
+      outline: 2px solid color-mix(in srgb, var(--accent) 65%, #ffffff 35%);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
     /* Match hover affordance from Other projects across all datalog cards */
     body[data-theme="datalogs"] .bp-card.js-entry-trigger:hover,
     body[data-theme="datalogs"] .out-card.js-entry-trigger:hover,
@@ -3149,6 +3252,8 @@
           <ul class="datalogs-dropdown" role="menu" hidden>
             <li><button type="button" class="nav-item nav-item--sub" data-tab="datalogs" data-datalog="birdsong"
                 role="menuitem">Birdsong</button></li>
+            <li><button type="button" class="nav-item nav-item--sub" data-tab="datalogs" data-datalog="umwelten"
+                role="menuitem">Umwelten</button></li>
             <li><button type="button" class="nav-item nav-item--sub" data-tab="datalogs" data-datalog="bepresent"
                 role="menuitem">BePresent</button></li>
             <li><button type="button" class="nav-item nav-item--sub" data-tab="datalogs" data-datalog="222"
@@ -3180,7 +3285,7 @@
         </div>-->
           </header>
           <div class="profile-bio">
-            <p>A game designer who creates perceptual worlds that feel more alive than our own reality. My work combines
+            <p>A game designer who creates perceptual worlds that feel more alive than our own. My work combines
               literary analysis with user research to build experiences our reality cannot provide— spaces where
               becoming yourself feels possible again.</p>
             <!--
@@ -3188,11 +3293,10 @@
           -->
           </div>
           <div class="profile-bio">
-            <p>Experience spans ethnographic fieldwork (222), game systems design (BePresent), and independent game
-              development (Birdsong). Proven ability to move between research, design, and hands-on development in Unity
+            <p>Experience spans independent game development (Birdsong), ethnographic fieldwork (222), game systems design (BePresent). Proven ability to move between research, design, and hands-on development in Unity
               and Blender.</p>
             <h3>How I work</h3>
-            <p>I think of games as umwelten— perceptual worlds that let us experience what our reality cannot provide.
+            <p>I think of games as umwelten, perceptual worlds that let us experience what our reality cannot provide.
               The development of video games allows us to create new worlds and experience perspectives in an entirely
               new way. My work connects that philosophical foundation to the practical systems that make those worlds
               feel honest, lived-in, and worth defending.</p>
@@ -3208,13 +3312,14 @@
         <div class="datalogs-content">
           <div class="sub-tabs" data-group="datalogs">
             <button type="button" class="sub-tab active" data-sub="birdsong">Birdsong</button>
+            <button type="button" class="sub-tab" data-sub="umwelten">Umwelten</button>
             <button type="button" class="sub-tab" data-sub="bepresent">BePresent</button>
             <button type="button" class="sub-tab" data-sub="222">222</button>
             <button type="button" class="sub-tab" data-sub="essays">Other projects</button>
           </div>
           <!-- Birdsong: intro → datacards -->
           <div class="sub-panel active" data-subpanel="birdsong" data-group="datalogs">
-            <div class="panel-label">Mystery adventure · College experience</div>
+            <div class="panel-label">Mystery adventure · Upcoming Release</div>
             <div class="panel-title">Birdsong</div>
             <div class="panel-desc">
               A third‑person, single‑player mystery adventure set in a picturesque early‑2010s college town.<br><br>You
@@ -3265,9 +3370,61 @@
               <p>What defending Seaview says about growing up in a time that tells you not to expect much.</p>
             </div>
           </div>
+          <!-- Umwelten: studies / philosophy / lens -->
+          <div class="sub-panel" data-subpanel="umwelten" data-group="datalogs">
+            <div class="panel-label">Romanticism meets Game worlds</div>
+            <div class="panel-title">Umwelten</div>
+            <div class="panel-desc">
+              The research thread that ties my work together: games as
+              <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-overview"><em>umwelten</em></a>,
+              perceptual worlds that teach you how to notice, feel, and become.<br><br>
+              This is where I connect
+              <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-romanticism">Romanticism</a>,
+              <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-birds">birdsong</a>,
+              and video games: why attention matters, where atmospheres change us, and how a game's individual and perceptual "world" can be designed
+              as a lived experience instead of a backdrop.
+            </div>
+            <div class="info-panel" style="margin-top: 2px; padding-top: 2px;">
+              <p>
+                This thread started with the original essay I wrote as I was forming my lense:
+                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="essay-mourning-doves">my original Birdsong class essay</a>.
+                From there, I translated it into a design practice: building worlds where mechanics, environments, and story structure
+                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-method">reshape the way you move through your real life</a>.
+              </p>
+              <p>
+                I treat
+                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-overview">games as umwelten</a>—lived perceptual worlds where what you can sense, what you ignore, and what feels meaningful are all designed on purpose.
+                I build
+                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-attention">bundles of constraints</a> that determine what becomes legible, what becomes background noise, and what starts to feel charged with meaning.
+              </p>
+              <p>
+                I use
+                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-romanticism">Romanticism as a design lens</a>: I treat
+                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-romanticism">walking as thought</a>,
+                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-atmosphere">weather as mood</a>,
+                and slowness as something the player is allowed to have—not a failure state.
+                I model this after
+                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-birds">birdsong</a>: ambient, continuous meaning that only becomes obvious once your attention changes.
+              </p>
+              <p>
+                I
+                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-method">design from the inside out</a>: I start by asking what the player learns to do with their attention, then build the scaffolding—systems,
+                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-ui">UI</a>, and environment—that makes that attention feel inevitable.
+                I treat
+                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-loop">pacing as a mechanic</a> that controls what the player has time to notice.
+              </p>
+              <p>
+                For more writing in this thread:
+                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="essay-umwelt">Umwelt and the Loss of Childhood Awareness</a>,
+                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="essay-digital-nostalgia">Digital Nostalgia as Contemporary Romanticism</a>,
+                and
+                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="essay-mourning-doves">my original Birdsong class essay</a>.
+              </p>
+            </div>
+          </div>
           <!-- BePresent: all content in one scroll, no nested tabs -->
           <div class="sub-panel" data-subpanel="bepresent" data-group="datalogs">
-            <div class="panel-label">Mobile · Wellness · Game design</div>
+            <div class="panel-label">Wellness · Mobile Game design</div>
             <div class="panel-title">BePresent</div>
             <div class="panel-desc">
               A collaboration with a digital wellness team on an app that helps people trade unintentional screen time
@@ -3323,7 +3480,7 @@
           </div>
           <!-- 222: all content in one scroll -->
           <div class="sub-panel" data-subpanel="222" data-group="datalogs">
-            <div class="panel-label">Research · Ethnography &amp; growth</div>
+            <div class="panel-label">UX Research · Ethnography · Growth</div>
             <div class="panel-title">222</div>
             <div class="panel-desc">
               A long-form research and then growth role at 222, an alternative social app. I started as a guest
@@ -3722,6 +3879,100 @@
     </div>
   </template>
 
+  <template id="tpl-birdsong-mourning-doves">
+    <div class="entry-doc">
+      <header class="entry-doc__masthead">
+        <h1 class="entry-doc__h1" id="entry-doc-h1">Mourning Doves and Melody of Memory</h1>
+        <p class="entry-doc__deck">Original class essay (Birdsong)</p>
+        <p class="entry-doc__byline">Alexander Bereck | March 20, 2024</p>
+      </header>
+
+      <p><strong>POV:</strong> it’s Winter 2006 and you meet your stepsisters for the first time…You’re a 12-year-old girl in 2006. Your dad’s new girlfriend Anne has daughters older than you, and you’re nervous they will judge you. Mom said that it’s OK because everyone goes through something like this in life and it should be a fun thing—not a scary thing. The oldest girl will be your stepsister soon and she doesn’t look you in the eye for some reason. You hear both girls laughing in the living room—are they laughing at you? Maybe it’s a good idea to just stay in the bathroom longer, because it’s quiet and safe. But then you hear your dad and Anne calling your name because dinner is ready. (Postmodernpalace)</p>
+
+      <p>My Instagram and YouTube feeds brim with content revisiting the forgotten past of my early childhood. Stories real and fictional, oddly specific, but reposted because they are almost universally relatable. They are about nostalgic media, liminal spaces, low contrast photo scans, arcades, and ugly carpets. Usually music plays—songs composed with deep muted synths, soft and slow melodies, and long reverb trails. Some of these songs are “snowfall” by Øneheart and reidenshi, Juliana Chahayed’s cover of “Duvet” by bôa, and “School Rooftop (Bird Sounds)” by Hisohkah and WMD. The third song features actual sounds of mourning doves, whose coos have come to be associated with childhood—the birdsong that seemed to disappear along with it.</p>
+
+      <p>These kinds of songs make me feel warm and tired, and remind me of what it is like to dream like a bored yet hopeful child trying to imagine life outside from my own world. An article in <em>The Atlantic</em>, called “How Animals Perceive the World,” featured a concept called “Umwelt,” which means the world of a creature’s sensory experience (Yong, Uexküll). While we can’t fully understand the umwelten of other organisms, humans can sometimes picture—or even personify—another organism’s umwelt, in a way I consider similar to our abilities to empathize with each other, wist for our youth, and dream of our future.</p>
+
+      <p>By observing nature, witnessing another umwelt, our own lives become clarified—a connection that has existed forever. Over two hundred years ago, romantics left the cities of England for adventures into rural landscapes, and wrote on the same feelings that we would have when engaged in the natural world today. Dorothy Wordsworth was one of these writers and kept a journal of her tours, capturing the events of her days and how they affected her—something similar to the internet in our own world.</p>
+
+      <p>When we are young, all we want to do is grow up and live bigger, busier lives. We think everything is in front of us, and we don’t pay as much attention to the sounds of the quiet, drowsy nights where we waited for something exciting to happen. But once our lives have changed before our eyes, and we don’t have a lot of free time, and we are searching for meaning in ourselves and our relationship with what’s beyond us, we start to notice the little details that make up a world transcendent of the milestones we rushed towards.</p>
+
+      <p>This was the case also in Dorothy Wordsworth’s time. In her <em>Grasmere Journal</em>, a pivotal entry reads:</p>
+
+      <blockquote>
+        <p>The crows and the ravens were busy, and the thrushes and little birds sang. I went through the fields, and sate for an hour afraid to pass a cow. The cow looked at me, and I looked at the cow, and whenever I stirred the cow gave over eating … As we came along Ambleside vale in the twilight, it was a grave evening. There was something in the air that compelled me to various thoughts … it made me more than half a poet.</p>
+      </blockquote>
+
+      <p>In the same instance that she is overcome with her surroundings, watching and being watched by the animals, she is met with the realization of her own ability to perceive the extraordinary within the ordinary. Wordsworth’s self-actualization as a true poet came from her response to being caught in the transitory environment, aware of the fleeting moment that redefined her perception forever. This is a timeless, overlooked coming of age milestone, one central to the romantic movement, and one neglected in a digitally interconnected world.</p>
+
+      <p>For those born on the cusp of the millennial and “z” generations, the world has changed in ways that magnify the shifts in our perspectives of umwelten. On the internet, the mourning dove’s coo symbolizes a common memory of suburban melancholic childhood. We didn’t listen to them—the creatures that make silence never quiet. When we hear their sound now, we are moved to contemplate who we were as a kid: who was that older cooler version of our self we wished to become, if we paid attention to the birds then, and if we are like that person at all.</p>
+
+      <p>Pages like postmodernpalace use the sounds of mourning doves’ coos and children’s laughter on top of montages resembling the simpler time—even though it didn’t feel that way—to draw out viewers’ sentimental attachment through our senses, even when we didn’t know how much those sounds shaped our lives. The videos make us question how often we hear those things any more, and what we are missing without them. They make me wonder what living in a better time really means, and think about if I will ever have the chance to feel the same contentedness that I did before my perception of umwelten changed.</p>
+
+      <p>The author of <em>The Atlantic</em> article said, “To perceive the world through others’ senses is to find splendor in familiarity, and the sacred in the mundane … We are continually immersed in it. It is there for us to imagine, to savor, and to protect” (Yong). The sun showers, crickets, ocean waves, the feeling of grass on your skin, provoke you to be aside from yourself and enter a macroscopic view of how things just were and are and going to be okay.</p>
+
+      <p>It is intense, and forces us to look at how our mental health has inevitably worsened, reflected by the environment and how gray everything has become; it has become inapropos for nature to thrive, us included. Dorothy Wordsworth’s brother, William, described this process in his poem, <em>Lines Composed a Few Miles above Tintern Abbey</em>:</p>
+
+      <blockquote>
+        <p>These beauteous forms,<br>
+        Through a long absence, have not been to me<br>
+        As is a landscape to a blind man's eye:<br>
+        But oft, in lonely rooms, and 'mid the din<br>
+        Of towns and cities, I have owed to them,<br>
+        In hours of weariness, sensations sweet,<br>
+        Felt in the blood, and felt along the heart;<br>
+        And passing even into my purer mind<br>
+        With tranquil restoration:—feelings too<br>
+        Of unremembered pleasure: such, perhaps,<br>
+        As have no slight or trivial influence<br>
+        On that best portion of a good man's life,<br>
+        His little, nameless, unremembered, acts<br>
+        Of kindness and of love.</p>
+      </blockquote>
+
+      <p>His disengagement from the industrial—much like the contemporary disenchantment from the digital—caused him to see what makes childhood and the tender moments of life so meaningful; and the difference that comes with the unexplainable inclination for compassion and curiosity, this time even better consciously as an adult. Only once we realize what we lose when we grow up, do we know what we are able strive for, and we are able to create a romanticized version of what we felt. The Wordsworths’ writing shared what they experienced, something that can inspire someone else to go through the same process, and the internet can do the same.</p>
+
+      <p>One such person who was inspired in this way was the poet, John Clare. In his observation of birds and children in “The Skylark”, he was able to reflect on the cross between the two’s worlds:</p>
+
+      <blockquote>
+        <p>The buttercups make schoolboys eager run,<br>
+        To see who shall be first to pluck the prize—<br>
+        Up from their hurry, see, the skylark flies,<br>
+        And o'er her half-formed nest, with happy wings<br>
+        Winnows the air, till in the cloud she sings,<br>
+        Then hangs a dust-spot in the sunny skies,<br>
+        And drops, and drops, till in her nest she lies,<br>
+        Which they unheeded passed—not dreaming then<br>
+        That birds which flew so high would drop agen<br>
+        To nests upon the ground, which anything<br>
+        May come at to destroy. Had they the wing<br>
+        Like such a bird, themselves would be too proud,<br>
+        And build on nothing but a passing cloud!</p>
+      </blockquote>
+
+      <p>Clare records the sequence of events, the boys seemingly disinterested in the skylark’s flight compared to their game. As an adult, who has experienced boyhood, he is able to watch from a different angle focused on the bird’s behavior that was caused by the unaware kids. As someone reveling the moment, he takes note of the interests of boyhood, and decides that they miss out on the skylark’s umwelt right in front of them. By containing this scene in a poem, readers—or maybe even the children—will be able to access another preserved world—not unlike the childhood nostalgia of digital media.</p>
+
+      <p>The overuse of digital technology has made us detached, but it is also what has brought us back together. Sometimes it is overwhelming and painful, other times it is able to encourage us to be conscious with the time and world we have, and empathetic for and in tune with the worlds we don’t. The development of video games allow for us to create new worlds and experience umwelten in an entirely new way. All I hope for is that this nostalgia and anemoia (nostalgia for what we have never experienced) brings people to value and enjoy everyday life and experiences more than when we were kids.</p>
+
+      <p><strong>“If you can imagine a world, believe in it…”</strong> (Kingdom Hearts 3)</p>
+
+      <h2>Works Cited</h2>
+      <ul>
+        <li>“POV: it’s Winter 2006 and you meet your stepsisters for the first time…” postmodernpalace, Instagram, 12 Nov. 2023.</li>
+        <li>“snowfall” by Øneheart and reidenshi, uploaded to dreamscape, YouTube, 14 Jan. 2022.</li>
+        <li>“lain sings u duvet,” Juliana Chahayed, YouTube, 13 Jul. 2023.</li>
+        <li>“School Rooftop (Bird Sounds)” by Hisohkah and WMD, uploaded to EUPHXRIA, YouTube, 3 Jun. 2023.</li>
+        <li>“Mourning Dove call,” Critter Cam, YouTube, 8 Apr. 2023.</li>
+        <li>Miller, Daniel. “L.A. mystery: The mourning doves stopped singing. What happened to them?” <em>L.A. Times</em>, 28 Oct. 2021.</li>
+        <li>Yong, Ed. “How Animals Perceive the World.” <em>The Atlantic</em>, 13 Jun. 2022.</li>
+        <li>Wordsworth, Dorothy. <em>Journals of Dorothy Wordsworth</em>, Vol. I. Edited by William Knight, MacMillian and Co., 1897. Project Gutenberg, 2013.</li>
+        <li>Wordsworth, William. “Lines Composed a Few Miles above Tintern Abbey…” Poetry Foundation.</li>
+        <li>Clare, John. “The Skylark.” <em>The Village Minstrel, and Other Poems</em>. London, 1821. Poetry Foundation.</li>
+        <li>Kingdom Hearts. <em>KINGDOM HEARTS III – D23 2017 Toy Story Trailer</em>. YouTube, Jul 15, 2017.</li>
+      </ul>
+    </div>
+  </template>
+
   <script>
     (function () {
       const body = document.body;
@@ -3863,6 +4114,86 @@
       }
 
       const ENTRY_DATA = {
+        'umwelten-overview': {
+          meta: 'UMWELTEN · OVERVIEW',
+          title: 'Umwelten',
+          tagline: 'Games as perceptual worlds.',
+          body: [
+            'An umwelt is a lived perceptual world: what you can sense, what you ignore, what feels meaningful, and what disappears into the background.',
+            'Games are uniquely capable of building umwelten on purpose. Through mechanics, interfaces, pacing, and atmosphere, a game can train you to notice certain things and feel certain kinds of significance.',
+            'This tab is where I explain the study thread that makes my work distinctive: Romanticism, birdsong, and video games all share the same question— what happens to a human being when you change what they pay attention to?'
+          ]
+        },
+        'umwelten-romanticism': {
+          meta: 'UMWELTEN · ROMANTICISM',
+          title: 'Romanticism → games',
+          tagline: 'Attention, landscape, interiority— as design.',
+          body: [
+            'Romantic writers treated landscape as a psychological instrument: walking changes thought, weather changes feeling, and attention changes who you are.',
+            'In games, that same tradition becomes level design and pacing. A path, a vista, a soundscape, a quiet stretch between objectives— these are not “content”; they are perception-shaping tools.',
+            'I use Romanticism as a practical lens: to build worlds where atmosphere is mechanical and becoming is something you do, not just something you read about.'
+          ]
+        },
+        'umwelten-birds': {
+          meta: 'UMWELTEN · BIRDSONG',
+          title: 'Why birds / birdsong',
+          tagline: 'Ambient meaning you only hear when you slow down.',
+          body: [
+            'Birdsong is not a “message”— it is a continuous signal that changes how a place feels. It turns empty air into a living environment.',
+            'That is exactly what great game worlds do: they create ambient meaning that isn’t delivered as exposition, but discovered through attention.',
+            'Birdsong, as a title and as a motif, is my way of naming a design goal: a world that rewards noticing, where the emotional truth is in the atmosphere as much as in the plot.'
+          ]
+        },
+        'umwelten-method': {
+          meta: 'UMWELTEN · METHOD',
+          title: 'How I apply it',
+          tagline: 'From theory to production decisions.',
+          body: [
+            'I translate this lens into concrete work: systems that reward specific forms of attention, UI that feels like part of the world, and environments built around rhythms rather than checklists.',
+            'When I design, I ask: what does the player learn to notice? What do they start to feel is important? What kind of person does this world train them to be?',
+            'Birdsong is the flagship expression of this method, but the same thinking shows up across my systems work and research practice.'
+          ]
+        },
+        'umwelten-attention': {
+          meta: 'UMWELTEN · ATTENTION',
+          title: 'Legibility and attention',
+          tagline: 'A world is what becomes readable.',
+          body: [
+            'In a strong game world, “attention” isn’t abstract. It’s shaped by what the game makes legible: what has feedback, what has consequences, what repeats, what’s scarce, what’s safe to ignore.',
+            'If you change legibility, you change meaning. If you change meaning, you change the player’s emotional life inside the world.',
+            'This is why UI, sound, and pacing matter as much as narrative. They decide what the player can actually perceive.'
+          ]
+        },
+        'umwelten-atmosphere': {
+          meta: 'UMWELTEN · ATMOSPHERE',
+          title: 'Atmosphere as a system',
+          tagline: 'Weather, light, sound— as mechanics.',
+          body: [
+            'Atmosphere isn’t decoration. It’s an input channel that conditions how the player interprets everything else.',
+            'A quiet stretch after a tense scene, a sky that changes as you move, a soundscape that makes a place feel inhabited— these are structural tools for shaping perception.',
+            'When the atmosphere changes, the same environment can mean something new without adding a single new quest.'
+          ]
+        },
+        'umwelten-ui': {
+          meta: 'UMWELTEN · UI',
+          title: 'UI as world',
+          tagline: 'Menus that feel like part of the fiction.',
+          body: [
+            'UI is the player’s most constant point of contact with a game’s reality. If it feels external, the world feels external.',
+            'When UI is treated as an in-world object (datalogs, codec screens, diegetic prompts), it becomes part of the atmosphere and reinforces the game’s way of seeing.',
+            'This is why I care about interface aesthetics: it’s not style— it’s coherence.'
+          ]
+        },
+        'umwelten-loop': {
+          meta: 'UMWELTEN · PACING',
+          title: 'Pacing as a mechanic',
+          tagline: 'What the game lets you linger on.',
+          body: [
+            'Pacing is a mechanic because it controls what the player has time to notice.',
+            'If the game is always urgent, the world becomes a corridor. If the game allows slowness, the world becomes a place.',
+            'Birdsong is designed around this: the mystery escalates, but daily life remains playable so the town can become meaningful before it’s threatened.'
+          ]
+        },
         'birdsong-overview': {
           meta: 'BIRDSONG · CONCEPT',
           title: 'Birdsong',
@@ -4114,15 +4445,8 @@
           meta: 'ESSAY · FEATURED',
           title: 'Mourning Doves and Melody of Memory',
           tagline: 'How a bird call and a PS2 loading screen taught me what nostalgia actually is.',
-          body: [
-            'This essay threads together mourning dove calls, Kingdom Hearts: Melody of Memory, and Romantic-era poetics to argue that nostalgia is less about returning to the past and more about confronting who we thought we\'d become.',
-            'This essay threads together mourning dove calls, Kingdom Hearts: Melody of Memory, and Romantic-era poetics to argue that nostalgia is less about returning to the past and more about confronting who we thought we\'d become.',
-            'This essay threads together mourning dove calls, Kingdom Hearts: Melody of Memory, and Romantic-era poetics to argue that nostalgia is less about returning to the past and more about confronting who we thought we\'d become.',
-            'This essay threads together mourning dove calls, Kingdom Hearts: Melody of Memory, and Romantic-era poetics to argue that nostalgia is less about returning to the past and more about confronting who we thought we\'d become.',
-            'This essay threads together mourning dove calls, Kingdom Hearts: Melody of Memory, and Romantic-era poetics to argue that nostalgia is less about returning to the past and more about confronting who we thought we\'d become.',
-            'By tracing how sound, game design, and childhood environments echo into adult life, the piece frames digital nostalgia as a serious aesthetic practice rather than a guilty pleasure.'
-          ],
-          has3d: true
+          docMode: true,
+          templateId: 'tpl-birdsong-mourning-doves'
         },
         'essay-digital-nostalgia': {
           meta: 'ESSAY · CULTURAL CRITICISM',
