@@ -47,6 +47,15 @@
       --accent: #7DC9C3;
       --accent-dim: rgba(125, 201, 195, 0.75);
       --accent-subtle: rgba(125, 201, 195, 0.15);
+      /* Typography scale — shared hierarchies across Profile / Datalogs / Abilities */
+      --type-eyebrow: 9px;
+      --type-caption: 10px;
+      --type-section: 11px;
+      --type-ui: 11px;
+      --type-lede: 14px;
+      --type-body: 15px;
+      --type-body-lh: 1.65;
+      --type-meta: 12px;
     }
 
     body[data-theme="profile"] {
@@ -70,8 +79,8 @@
     /* Birdsong: compressed two-column layout */
     body[data-theme="datalogs"][data-datalog="birdsong"] .panel-desc {
       margin-bottom: 12px;
-      font-size: 15px;
-      line-height: 1.5;
+      font-size: var(--type-body);
+      line-height: var(--type-body-lh);
     }
 
     body[data-theme="datalogs"][data-datalog="birdsong"] .info-panel {
@@ -84,13 +93,13 @@
 
     body[data-theme="datalogs"][data-datalog="birdsong"] .info-panel h3 {
       margin-bottom: 6px;
-      font-size: 10px;
+      font-size: var(--type-section);
     }
 
     body[data-theme="datalogs"][data-datalog="birdsong"] .info-panel p {
       margin-bottom: 6px;
-      font-size: 13px;
-      line-height: 1.5;
+      font-size: var(--type-body);
+      line-height: var(--type-body-lh);
     }
 
     body[data-theme="datalogs"][data-datalog="birdsong"] .info-panel p:last-child {
@@ -123,18 +132,18 @@
     }
 
     body[data-theme="datalogs"][data-datalog="birdsong"] .bp-card h3 {
-      font-size: 10px;
+      font-size: var(--type-caption);
       margin-bottom: 6px;
     }
 
     body[data-theme="datalogs"][data-datalog="birdsong"] .bp-card p {
-      font-size: 13px;
-      line-height: 1.5;
+      font-size: var(--type-body);
+      line-height: var(--type-body-lh);
       margin-bottom: 0;
     }
 
     body[data-theme="datalogs"][data-datalog="birdsong"] .panel-label {
-      font-size: 9px;
+      font-size: var(--type-eyebrow);
       letter-spacing: 2px;
       margin-bottom: 4px;
     }
@@ -148,8 +157,8 @@
     /* 222 page: same compression as Birdsong */
     body[data-theme="datalogs"][data-datalog="222"] .panel-desc {
       margin-bottom: 12px;
-      font-size: 15px;
-      line-height: 1.5;
+      font-size: var(--type-body);
+      line-height: var(--type-body-lh);
     }
 
     body[data-theme="datalogs"][data-datalog="222"] .info-panel {
@@ -162,13 +171,13 @@
 
     body[data-theme="datalogs"][data-datalog="222"] .info-panel h3 {
       margin-bottom: 6px;
-      font-size: 10px;
+      font-size: var(--type-section);
     }
 
     body[data-theme="datalogs"][data-datalog="222"] .info-panel p {
       margin-bottom: 6px;
-      font-size: 13px;
-      line-height: 1.5;
+      font-size: var(--type-body);
+      line-height: var(--type-body-lh);
     }
 
     body[data-theme="datalogs"][data-datalog="222"] .info-panel p:last-child {
@@ -182,7 +191,7 @@
 
     /* Apply compression to all datalogs pages */
     body[data-theme="datalogs"] .panel-label {
-      font-size: 9px;
+      font-size: var(--type-eyebrow);
       letter-spacing: 2px;
       margin-bottom: 4px;
     }
@@ -196,22 +205,22 @@
     body[data-theme="datalogs"] .panel-desc {
       margin-bottom: 12px;
       margin-top: 0;
-      font-size: 15px;
-      line-height: 1.5;
+      font-size: var(--type-body);
+      line-height: var(--type-body-lh);
     }
 
     body[data-theme="datalogs"] .bp-card h3,
     body[data-theme="datalogs"] .out-card h3,
     body[data-theme="datalogs"] .moogle-card h3 {
-      font-size: 10px;
+      font-size: var(--type-caption);
       margin-bottom: 6px;
     }
 
     body[data-theme="datalogs"] .bp-card p,
     body[data-theme="datalogs"] .out-card p,
     body[data-theme="datalogs"] .moogle-card p {
-      font-size: 13px;
-      line-height: 1.5;
+      font-size: var(--type-body);
+      line-height: var(--type-body-lh);
       margin-bottom: 6px;
     }
 
@@ -774,6 +783,8 @@
       justify-content: space-between;
       padding: 0 20px;
       font-family: var(--hud);
+      gap: 10px;
+      min-width: 0;
     }
 
     .shop-disp {
@@ -783,6 +794,11 @@
       color: #AAA;
       text-transform: uppercase;
       transition: color 0.5s;
+      min-width: 0;
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .hud-user {
@@ -834,11 +850,12 @@
 
       .shop-disp {
         font-size: 9px;
-        letter-spacing: 2px;
+        letter-spacing: 1.5px;
       }
 
       .hud-user {
         font-size: 9px;
+        flex-shrink: 0;
       }
 
       /* On mobile the bottom "network connected" label wraps and takes space. */
@@ -1204,7 +1221,7 @@
     .paradigm-columns span {
       font-family: var(--head);
       font-weight: 600;
-      font-size: 10px;
+      font-size: var(--type-caption);
       letter-spacing: 2px;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.45);
@@ -1233,7 +1250,7 @@
     .p-row-name {
       font-family: var(--head);
       font-weight: 600;
-      font-size: 13px;
+      font-size: var(--type-lede);
       letter-spacing: 1px;
       color: rgba(255, 255, 255, 0.9);
     }
@@ -1249,10 +1266,10 @@
 
     .p-row-detail {
       font-family: var(--body);
-      font-size: 13px;
+      font-size: var(--type-body);
       color: rgba(255, 255, 255, 0.65);
       font-weight: 300;
-      line-height: 1.5;
+      line-height: var(--type-body-lh);
     }
 
     /* Sub-tabs within a panel */
@@ -1266,7 +1283,7 @@
     .sub-tab {
       font-family: var(--head);
       font-weight: 500;
-      font-size: 11px;
+      font-size: var(--type-ui);
       letter-spacing: 2px;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.5);
@@ -1312,7 +1329,7 @@
     .info-panel h3 {
       font-family: var(--head);
       font-weight: 600;
-      font-size: 11px;
+      font-size: var(--type-section);
       letter-spacing: 3px;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.4);
@@ -1320,9 +1337,9 @@
     }
 
     .info-panel p {
-      font-size: 15px;
+      font-size: var(--type-body);
       color: rgba(255, 255, 255, 0.7);
-      line-height: 1.7;
+      line-height: var(--type-body-lh);
       margin-bottom: 12px;
     }
 
@@ -1396,7 +1413,7 @@
     .out-card h3 {
       font-family: var(--head);
       font-weight: 600;
-      font-size: 11px;
+      font-size: var(--type-section);
       letter-spacing: 3px;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.5);
@@ -1405,8 +1422,8 @@
 
     .bp-card p,
     .out-card p {
-      font-size: 15px;
-      line-height: 1.75;
+      font-size: var(--type-body);
+      line-height: var(--type-body-lh);
       color: rgba(255, 255, 255, 0.9);
       margin-bottom: 12px;
     }
@@ -1588,6 +1605,12 @@
       background: rgba(15, 23, 42, 0.06);
     }
 
+    @media (max-width: 900px) {
+      body[data-theme="datalogs"][data-datalog="umwelten"] .panel[data-panel="datalogs"] .sub-tabs[data-group="datalogs"] {
+        border-bottom-color: rgba(15, 23, 42, 0.12);
+      }
+    }
+
     /* Datalogs: floating text only — no boxes, so Frutiger Metro graphics pop */
     body[data-theme="datalogs"] .moogle-card {
       background: transparent;
@@ -1666,17 +1689,34 @@
     }
 
     @media (max-width: 900px) {
-      .panel[data-panel="datalogs"] .sub-tabs {
+      .panel[data-panel="datalogs"] .sub-tabs[data-group="datalogs"] {
         display: flex;
         width: 100%;
-        justify-content: center;
-        gap: 8px;
+        max-width: 100%;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+        gap: 6px;
+        margin-bottom: 12px;
+        padding: 0 0 8px;
+        scrollbar-width: none;
+        box-sizing: border-box;
       }
 
-      .panel[data-panel="datalogs"] .sub-tabs .sub-tab {
-        flex: 0 1 auto;
+      .panel[data-panel="datalogs"] .sub-tabs[data-group="datalogs"]::-webkit-scrollbar {
+        display: none;
+      }
+
+      .panel[data-panel="datalogs"] .sub-tabs[data-group="datalogs"] .sub-tab {
+        flex: 0 0 auto;
         text-align: center;
-        padding: 8px 16px;
+        padding: 10px 14px;
+      }
+
+      /* Swipe-friendly project area: vertical scroll still primary */
+      .panel[data-panel="datalogs"] .datalogs-content {
+        touch-action: pan-y;
       }
     }
 
@@ -1713,8 +1753,8 @@
     }
 
     .moogle-card p {
-      font-size: 14px;
-      line-height: 1.7;
+      font-size: var(--type-body);
+      line-height: var(--type-body-lh);
       color: rgba(20, 50, 40, 0.75);
     }
 
@@ -1768,15 +1808,15 @@
     }
 
     .profile-tagline {
-      font-size: 13px;
-      line-height: 1.4;
+      font-size: var(--type-lede);
+      line-height: var(--type-body-lh);
       color: rgba(255, 255, 255, 0.88);
       max-width: 42ch;
     }
 
     .profile-currently {
-      font-size: 12px;
-      line-height: 1.4;
+      font-size: var(--type-meta);
+      line-height: var(--type-body-lh);
       color: rgba(244, 216, 113, 0.75);
       margin-top: 12px;
       font-style: italic;
@@ -1800,8 +1840,8 @@
     }
 
     .profile-bio p {
-      font-size: 13px;
-      line-height: 1.6;
+      font-size: var(--type-body);
+      line-height: var(--type-body-lh);
       color: rgba(255, 255, 255, 0.9);
       margin-bottom: 10px;
     }
@@ -1844,16 +1884,16 @@
     .profile-bio h3 {
       font-family: var(--head);
       font-weight: 700;
-      font-size: 14px;
-      letter-spacing: 2px;
+      font-size: var(--type-section);
+      letter-spacing: 3px;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.95);
       margin-bottom: 6px;
     }
 
     .profile-block p {
-      font-size: 14px;
-      line-height: 1.5;
+      font-size: var(--type-body);
+      line-height: var(--type-body-lh);
       color: rgba(255, 255, 255, 0.88);
       margin-bottom: 8px;
     }
@@ -2111,10 +2151,10 @@
     }
 
     .abilities-lp .abilities-body {
-      font-size: 13px;
+      font-size: var(--type-body);
       font-weight: 300;
       color: #7A5528;
-      line-height: 1.6;
+      line-height: var(--type-body-lh);
     }
 
     .abilities-sp-total {
@@ -3274,11 +3314,9 @@
           <header class="profile-hero">
             <div class="profile-hero-text">
               <h1 class="profile-name">Alexander Bereck</h1>
-              <p class="profile-tagline">Game designer and developer building around how people actually
-                experience the world.</p>
+              <p class="profile-tagline">Game designer and developer focused on narrative systems and player memories .</p>
               <div class="profile-mobile-spacer"></div>
-              <p class="profile-currently">Currently: Developing Birdsong in Unity, seeking more game design and
-                development roles.</p>
+              <p class="profile-currently">Currently: Developing Birdsong in Unity. Open to new roles in game design and development.</p>
             </div>
             <!--<div class="profile-hero-portrait datalog-portrait">
           <div class="portrait-label">Alexander Bereck</div>
@@ -3293,8 +3331,7 @@
           -->
           </div>
           <div class="profile-bio">
-            <p>Experience spans independent game development (Birdsong), ethnographic fieldwork (222), game systems design (BePresent). Proven ability to move between research, design, and hands-on development in Unity
-              and Blender.</p>
+            <p>Experience spans independent game development (Birdsong), ethnographic fieldwork (222), and behavioral game systems design (BePresent). I move between research and hands-on development in Unity and Blender.</p>
             <h3>How I work</h3>
             <p>I think of games as umwelten, perceptual worlds that let us experience what our reality cannot provide.
               The development of video games allows us to create new worlds and experience perspectives in an entirely
@@ -3315,7 +3352,7 @@
             <button type="button" class="sub-tab" data-sub="umwelten">Umwelten</button>
             <button type="button" class="sub-tab" data-sub="bepresent">BePresent</button>
             <button type="button" class="sub-tab" data-sub="222">222</button>
-            <button type="button" class="sub-tab" data-sub="essays">Other projects</button>
+            <button type="button" class="sub-tab" data-sub="essays">More</button>
           </div>
           <!-- Birdsong: intro → datacards -->
           <div class="sub-panel active" data-subpanel="birdsong" data-group="datalogs">
@@ -3371,47 +3408,34 @@
             </div>
           </div>
           <!-- Umwelten: studies / philosophy / lens -->
+          <!-- TODO(content): Umwelten ENTRY_DATA datacards — several overlap this page; refine or merge so each card adds distinct depth. -->
           <div class="sub-panel" data-subpanel="umwelten" data-group="datalogs">
             <div class="panel-label">Romanticism meets Game worlds</div>
             <div class="panel-title">Umwelten</div>
             <div class="panel-desc">
-              The research thread that ties my work together: games as
+              My method, and the research thread that ties my work together— games as
               <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-overview"><em>umwelten</em></a>,
-              perceptual worlds that teach you how to notice, feel, and become.<br><br>
+              perceptual worlds that were made to make us notice, feel, and become.<br><br>
               This is where I connect
-              <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-romanticism">Romanticism</a>,
+              Romanticism,
               <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-birds">birdsong</a>,
-              and video games: why attention matters, where atmospheres change us, and how a game's individual and perceptual "world" can be designed
-              as a lived experience instead of a backdrop.
+              and video games: a game's individual and perceptual "world" can be designed to be more than a backdrop, but a lived experience.
             </div>
             <div class="info-panel" style="margin-top: 2px; padding-top: 2px;">
               <p>
-                This thread started with the original essay I wrote as I was forming my lense:
-                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="essay-mourning-doves">my original Birdsong class essay</a>.
-                From there, I translated it into a design practice: building worlds where mechanics, environments, and story structure
-                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-method">reshape the way you move through your real life</a>.
+                This thread started with the essay I wrote while I was forming this lens in college:
+                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="essay-mourning-doves">Mourning doves and Melody of Memory</a>.
+                Since then, I translated it into building worlds of my own where mechanics, environments, and story are structured
+                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-method">like the way you move through your real life</a>.
               </p>
               <p>
-                I treat
-                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-overview">games as umwelten</a>—lived perceptual worlds where what you can sense, what you ignore, and what feels meaningful are all designed on purpose.
-                I build
-                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-attention">bundles of constraints</a> that determine what becomes legible, what becomes background noise, and what starts to feel charged with meaning.
-              </p>
-              <p>
-                I use
-                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-romanticism">Romanticism as a design lens</a>: I treat
-                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-romanticism">walking as thought</a>,
-                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-atmosphere">weather as mood</a>,
-                and slowness as something the player is allowed to have—not a failure state.
-                I model this after
-                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-birds">birdsong</a>: ambient, continuous meaning that only becomes obvious once your attention changes.
-              </p>
-              <p>
-                I
-                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-method">design from the inside out</a>: I start by asking what the player learns to do with their attention, then build the scaffolding—systems,
-                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-ui">UI</a>, and environment—that makes that attention feel inevitable.
-                I treat
-                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-loop">pacing as a mechanic</a> that controls what the player has time to notice.
+                Birdsong is a third-person single-player mystery adventure set in a picturesque college town in the early 2010s.
+                You are Oliver, returning after summer break to Seaview—an American college and surf town founded to encourage
+                a conscious vision of becoming the older, cooler version of yourself. On your first night back, during the Dean’s
+                annual welcome speech, a fire breaks out. What first seems like a terrible accident soon reveals itself as part
+                of something darker: someone is systematically dismantling Seaview and everything it stands for. For how this
+                connects to the rest of the pitch, see
+                <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="birdsong-overview">Birdsong — concept overview</a>.
               </p>
               <p>
                 For more writing in this thread:
@@ -3991,11 +4015,24 @@
       const hudNav = document.getElementById('hud-nav');
       const btmLabel = document.getElementById('btm-label');
       const networkPrefix = 'NETWORK CONNECTED — ';
+      const DATALOG_ORDER = ['birdsong', 'umwelten', 'bepresent', '222', 'essays'];
+      const DATALOG_SHOP = {
+        birdsong: 'DATALOGS · BIRDSONG',
+        umwelten: 'DATALOGS · UMWELTEN',
+        bepresent: 'DATALOGS · BEPRESENT',
+        '222': 'DATALOGS · 222',
+        essays: 'DATALOGS · MORE',
+      };
       function updateHUD(tabId) {
         const i = tabOrder.indexOf(tabId);
         if (i === -1) return;
         const m = META[i];
-        const locationText = networkPrefix + m.shop;
+        let shopKey = m.shop;
+        if (tabId === 'datalogs') {
+          const subId = body.getAttribute('data-datalog') || 'birdsong';
+          shopKey = DATALOG_SHOP[subId] || ('DATALOGS · ' + String(subId).toUpperCase());
+        }
+        const locationText = networkPrefix + shopKey;
         if (shopDisp) shopDisp.textContent = locationText;
         if (hudMsg) hudMsg.textContent = m.msg;
         if (btmLabel) btmLabel.textContent = locationText;
@@ -4035,6 +4072,13 @@
         });
         document.querySelectorAll('.datalogs-dropdown .nav-item--sub').forEach(el => {
           el.classList.toggle('active', el.dataset.datalog === subId);
+        });
+        if (body.getAttribute('data-theme') === 'datalogs') {
+          updateHUD('datalogs');
+        }
+        requestAnimationFrame(() => {
+          document.querySelector('.sub-tabs[data-group="datalogs"] .sub-tab.active')
+            ?.scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
         });
       }
       function closeDatalogsDropdown() {
@@ -4087,12 +4131,46 @@
           document.querySelectorAll('.datalogs-dropdown .nav-item--sub').forEach(el => {
             el.classList.toggle('active', el.dataset.datalog === subId);
           });
+          updateHUD('datalogs');
         }
       });
       if (body.getAttribute('data-theme') === 'datalogs') {
         const active = document.querySelector('[data-group="datalogs"][data-subpanel].active');
         body.setAttribute('data-datalog', active ? active.dataset.subpanel : 'birdsong');
       }
+
+      /* Mobile: swipe left/right between datalog projects (narrow viewports only) */
+      const datalogsContent = document.querySelector('.datalogs-content');
+      let datalogTouchX = 0;
+      let datalogTouchY = 0;
+      datalogsContent?.addEventListener(
+        'touchstart',
+        (e) => {
+          if (window.matchMedia('(min-width: 901px)').matches) return;
+          if (body.getAttribute('data-theme') !== 'datalogs') return;
+          datalogTouchX = e.changedTouches[0].screenX;
+          datalogTouchY = e.changedTouches[0].screenY;
+        },
+        { passive: true }
+      );
+      datalogsContent?.addEventListener(
+        'touchend',
+        (e) => {
+          if (window.matchMedia('(min-width: 901px)').matches) return;
+          if (body.getAttribute('data-theme') !== 'datalogs') return;
+          const t = e.changedTouches[0];
+          const dx = t.screenX - datalogTouchX;
+          const dy = t.screenY - datalogTouchY;
+          if (Math.abs(dx) < 56 || Math.abs(dx) < Math.abs(dy) * 1.15) return;
+          const active = document.querySelector('[data-group="datalogs"][data-subpanel].active');
+          if (!active) return;
+          const idx = DATALOG_ORDER.indexOf(active.dataset.subpanel);
+          if (idx === -1) return;
+          if (dx < 0 && idx < DATALOG_ORDER.length - 1) setDatalog(DATALOG_ORDER[idx + 1]);
+          else if (dx > 0 && idx > 0) setDatalog(DATALOG_ORDER[idx - 1]);
+        },
+        { passive: true }
+      );
 
       // In-page project entry overlay
       const overlay = document.getElementById('entry-overlay');
