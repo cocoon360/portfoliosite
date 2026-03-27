@@ -1690,13 +1690,19 @@
       .panel[data-panel="datalogs"] .sub-tabs[data-group="datalogs"] .sub-tab {
         flex: 1 1 0;
         min-width: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         text-align: center;
-        padding: 8px 4px;
-        font-size: 8px;
-        letter-spacing: 0.6px;
+        padding: 12px 5px;
+        min-height: 44px;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.35px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        line-height: 1.15;
       }
     }
 
@@ -3104,6 +3110,15 @@
 
       .app {
         padding-top: 72px;
+      }
+
+      /* Datalogs only: tuck main content closer to HUD (profile & abilities unchanged) */
+      body[data-theme="datalogs"] .app {
+        padding-top: 62px;
+      }
+
+      body[data-theme="datalogs"] .main {
+        padding-top: 10px;
       }
 
       .clink {
