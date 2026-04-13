@@ -2768,11 +2768,18 @@
       border: 1px solid rgba(90, 110, 150, 0.35);
     }
 
+    .entry-doc-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
     .entry-doc-figure figcaption {
       font-size: 13px;
       line-height: 1.55;
       color: rgba(55, 68, 98, 0.92);
       font-style: italic;
+      margin-top: 0.45rem;
     }
 
     .entry-doc__rule {
@@ -3463,9 +3470,9 @@
             <div class="panel-label">Wellness · Mobile Game design</div>
             <div class="panel-title">BePresent</div>
             <div class="panel-desc">
-              A collaboration with a digital wellness team on an app that helps people trade unintentional screen time
-              for small, deliberate moments of being present. My work focused on turning their mission into a clear,
-              gamified product using language that feels encouraging rather than self conscious.
+              A collaboration with a digital wellness team on an app concept that reframes screen-time reduction as an
+              active, meaningful, and shareable life practice. More than a blocker — a life-maxxing system that turns
+              being offline into real-world missions, personal transformation, collective purpose, and visible memory.
             </div>
             <div class="info-panel">
               <h3>Designing for life reclamation</h3>
@@ -3495,7 +3502,14 @@
                 world.” ACT is where you choose and commit to offline activities, WORLD shows how those choices add up
                 collectively, and MEMORIES becomes the archive of the life you actually lived.</p>
             </div>
-            <div class="bp-card js-entry-trigger" data-entry-id="bepresent-individual">
+            <div class="bp-card js-entry-trigger" data-entry-id="bepresent-journey">
+              <h3>Presence Journey</h3>
+              <p>The personal progression system inside BePresent. Activities move users through Beginner (simple daily
+                moments), Growing (meaningful experiences), and Transforming (life-changing adventures)—a path that
+                feels authored without feeling rigid. AI learns from habits and community activity to surface the most
+                resonant prompts for each user.</p>
+            </div>
+                        <div class="bp-card js-entry-trigger" data-entry-id="bepresent-individual">
               <h3>ACT · Individual Presence</h3>
               <p>The ACT tab is the core tracking and behavior layer. You browse or receive suggested activities, set a
                 blocking session around them, and complete them offline. Verification and reflection screens keep the
@@ -3621,6 +3635,21 @@
                   data-project="research">
                   <h3>222 User Experience Research (Short Version)</h3>
                   <p>Ethnographic research conducted on 222, an AI-powered in-person social media platform.</p>
+                </div>
+                <div class="out-card js-entry-trigger" data-entry-id="showcase-222-full"
+                  data-project="research">
+                  <h3>222 — Full Case Showcase</h3>
+                  <p>Ethnographic research, UX analysis, and growth work on an alternative social app. From participant-observer to growth specialist.</p>
+                </div>
+                <div class="out-card js-entry-trigger" data-entry-id="showcase-bp-recruiter"
+                  data-project="research">
+                  <h3>Be Present — Recruiter Summary</h3>
+                  <p>Concise overview of the Be Present product vision: game-forward digital wellness, three-module structure, and life-maxxing framing.</p>
+                </div>
+                <div class="out-card js-entry-trigger" data-entry-id="showcase-bp-full"
+                  data-project="research">
+                  <h3>Be Present — Full Case Showcase</h3>
+                  <p>Complete product case document covering concept, systems design, Presence Journey, World Presence, activity design, and portfolio value.</p>
                 </div>
               </div>
             </div>
@@ -3918,6 +3947,263 @@
       <p><strong>Data Limitations:</strong> Research focused on regular users and those willing to be interviewed. The voices of people who tried 222 once and never returned are underrepresented. Future research would benefit from exit interviews or follow-up surveys with one-time users.</p>
 
       <p><strong>Ethical Considerations:</strong> All participants were informed of the research context. Quotes and observations were anonymized. The dual role as participant-researcher was disclosed to the 222 team.</p>
+    </div>
+  </template>
+
+  <!-- Be Present: Recruiter Summary -->
+  <template id="tpl-bp-recruiter">
+    <div class="entry-doc">
+      <header class="entry-doc__masthead">
+        <h1 class="entry-doc__h1" id="entry-doc-h1">Be Present — Recruiter Summary</h1>
+        <p class="entry-doc__deck">Game-forward digital wellness concept</p>
+        <p class="entry-doc__byline">Alexander Bereck | Product Vision &amp; Systems Design</p>
+      </header>
+
+      <p>Be Present is a game-forward digital wellness concept that turns screen-time reduction into a richer system of self-improvement, collective purpose, and lived memory. Instead of asking users to simply block their phone, it gives them real-world missions to complete, tracks the kind of growth those missions create, and feeds that growth into a visible social world.</p>
+
+      <p>At its strongest, the concept is a <strong>presence tool</strong>, a <strong>life-maxxing system</strong>, a <strong>collective mission</strong>, and a <strong>memory machine</strong>.</p>
+
+      <h2>Why It Stands Out</h2>
+
+      <p>Most wellness blockers tell users what to stop doing. Be Present gives them something meaningful to do instead. The loop becomes:</p>
+
+      <p><em>block phone → do something real → reflect → grow → remember it → inspire others → repeat</em></p>
+
+      <p>That shift moves the product from passive restriction to active becoming.</p>
+
+      <h2>Core Product Structure</h2>
+
+      <p>The concept is built around three linked modules:</p>
+
+      <ul>
+        <li><strong>WORLD</strong> — collective impact visualization, friends layer, and global inspiration feed</li>
+        <li><strong>ACT</strong> — activity discovery, commitment, blocking, and real-world completion</li>
+        <li><strong>MEMORIES</strong> — archive, reflection, recap, and visible proof of change</li>
+      </ul>
+      <figure class="entry-doc-figure">
+        <img src="assets/bp/diagram-1.png" alt="Be Present three-module system diagram showing WORLD, ACT, and MEMORIES and how they feed each other">
+        <figcaption>The three-module loop: WORLD inspires action, ACT creates experience, MEMORIES turns experience into identity and proof.</figcaption>
+      </figure>
+
+
+      <p>Together, those systems create a seamless flow between self-improvement and community goals.</p>
+
+      <h2>The Strongest Design Move</h2>
+
+      <p>Be Present reframes the user's internal question from "How do I use my phone less?" to "What fulfilling thing am I going to do now?" That reframing gives the concept emotional and behavioral power.</p>
+
+      <h2>Presence Journey</h2>
+
+      <p>The app structures offline life as a progression path:</p>
+      <ul>
+        <li><strong>Beginner</strong> — simple daily moments</li>
+        <li><strong>Growing</strong> — meaningful experiences</li>
+        <li><strong>Transforming</strong> — life-changing adventures</li>
+      </ul>
+      <figure class="entry-doc-figure">
+        <img src="assets/bp/diagram-2.png" alt="Presence Journey progression diagram showing the full loop from opening Be Present through to suggesting the next challenge, with Beginner, Growing, and Transforming tiers and Life Spirit, Connection Depth, and Courage experience dimensions">
+        <figcaption>Presence Journey: the full loop from choosing an activity to reflecting, updating stats, and surfacing the next challenge. Tiers and experience dimensions shown.</figcaption>
+      </figure>
+
+
+      <p>The user is not simply logging blocked time. They are moving through increasingly meaningful forms of life experience. Growth is tracked through <strong>Life Spirit</strong> (present living), <strong>Connection Depth</strong> (social and relational growth), and <strong>Courage</strong> (difficulty, stretch, and willingness to act).</p>
+
+      <h2>AI and Prompt Personalization</h2>
+
+      <p>The system can use AI to recommend prompts based on a user's habits, reflection history, and completed activities. Because the product also includes user-generated activities and community examples, the AI can surface prompts made by other users that match the kind of experiences a specific user responds to — making the concept personalized, social, adaptive, and alive.</p>
+
+      <h2>Why the Social Layer Works</h2>
+
+      <p>The concept avoids turning growth into a performative feed. Instead, users see signs of real life happening offline: what others are doing, visible world progress, shared memories, collective presence. This creates social proof without requiring vanity or competition.</p>
+
+      <h2>Marketing and Product Potential</h2>
+
+      <p>The concept has unusually strong marketing value because it can communicate effectiveness through visible, behavior-based statistics: total present time, total completed activities, shifts in user behavior, and contribution to world progress. New users continuously offset the challenge — meaning the product can market both <strong>proof</strong> and <strong>momentum</strong> at once.</p>
+
+      <h2>Why It Is Strong Portfolio Work</h2>
+
+      <p>This project shows product strategy, systems thinking, game design applied to non-game software, emotionally intelligent writing, and culturally current interaction design. The concept does not only solve a utility problem — it proposes a more vivid, more social, and more marketable way of helping users reclaim life offline.</p>
+    </div>
+  </template>
+
+  <!-- Be Present: Full Case Showcase -->
+  <template id="tpl-bp-full">
+    <div class="entry-doc">
+      <header class="entry-doc__masthead">
+        <h1 class="entry-doc__h1" id="entry-doc-h1">Be Present — Full Case Showcase</h1>
+        <p class="entry-doc__deck">Game-forward digital wellness concept</p>
+        <p class="entry-doc__byline">Alexander Bereck | Product Vision · Systems Design · Interaction Writing</p>
+      </header>
+
+      <h2>Core Thesis</h2>
+
+      <p>Be Present is a digital wellness app concept that reframes screen-time reduction as an active, meaningful, and shareable life practice. Instead of centering the user around guilt, restriction, or abstract productivity, the concept turns being offline into a system of real-world actions, personal transformation, collective purpose, and memory.</p>
+
+      <p>At its strongest, Be Present is not just a blocker. It is a <strong>presence tool</strong> that helps users get off their phones, a <strong>life-maxxing system</strong> that gives them something worth doing instead, a <strong>collective mission</strong> that makes individual effort feel socially meaningful, and a <strong>memory machine</strong> that turns offline life into visible proof of growth.</p>
+
+      <p>The central design move: Be Present reframes the entire conversation from "I need to use my phone less" to "I am challenging myself to do fulfilling things." That shift changes everything — it moves the product from passive avoidance to active becoming.</p>
+
+      <h2>What Problem It Solves</h2>
+
+      <p>Most screen-time tools are structurally thin. They ask the user to stop doing something, but give no compelling replacement for what comes next. The result is a loop of discipline without meaning: <em>block phone → wait → unblock → repeat.</em></p>
+
+      <p>Be Present proposes a better loop: <em>block phone → do something real → reflect → grow → remember it → inspire others → repeat.</em></p>
+
+      <p>This addresses three failures common to standard blockers. The <strong>motivation problem</strong>: users know they spend too much time on their phones, but knowledge alone rarely changes behavior — Be Present gives the user something to move toward, not just away from. The <strong>meaning problem</strong>: if reduced screen time only feels like restraint, it becomes fragile — Be Present makes the answer tangible through missions, growth, and collective purpose. The <strong>retention problem</strong>: many habit products collapse once novelty wears off — Be Present avoids this by pairing personal growth with a system that never fully ends.</p>
+
+      <h2>Product Architecture</h2>
+
+      <p>The product is built around three linked modules — <strong>WORLD</strong>, <strong>ACT</strong>, and <strong>MEMORIES</strong> — which are not three unrelated features, but three expressions of the same loop.</p>
+
+      <p><strong>WORLD</strong> is the collective mission layer. It answers: <em>Why does my individual effort matter beyond me?</em> Key functions: collective impact visualization, social and friends layer, global inspiration feed, world progress, visible proof that users are being present together. World Presence transforms screen time reduction into a mission to restore Presence to the entire world — calculated from the relation between all users' present time and screen time.</p>
+
+      <p><strong>ACT</strong> is the behavior and action layer. It answers: <em>What do I actually do when I decide to be present?</em> The app gives the user a concrete action to commit to, then wraps the blocking session around that action. The core verbs: discover, commit, block, do, reflect. This makes the system feel less like denial and more like initiation.</p>
+      <figure class="entry-doc-figure">
+        <img src="assets/bp/diagram-1.png" alt="Be Present three-module system diagram showing WORLD, ACT, and MEMORIES and how they feed each other">
+        <figcaption>The three-module loop: WORLD inspires action, ACT creates experience, MEMORIES turns experience into identity and proof.</figcaption>
+      </figure>
+
+
+      <p><strong>MEMORIES</strong> is the archive, reflection, and proof layer. It answers: <em>What remains after I complete an activity?</em> Each offline action becomes part of a visible personal history — a growing record of a life that is actually being lived. The "Spotify-wrapped-like shareable" makes change feel real, cumulative, and identity-forming.</p>
+
+      <h2>Presence Journey</h2>
+
+      <p>Presence Journey is the personal progression system inside Be Present — the clearest expression of the concept's life-maxxing dimension. Its job is to make being present feel like a real path, not a one-off task.</p>
+
+      <p>The structure is progressive: <strong>Beginner</strong> (simple daily moments) → <strong>Growing</strong> (meaningful experiences) → <strong>Transforming</strong> (life-changing adventures).</p>
+      <figure class="entry-doc-figure">
+        <img src="assets/bp/diagram-2.png" alt="Presence Journey progression diagram showing the full loop from opening Be Present through to suggesting the next challenge, with Beginner, Growing, and Transforming tiers and Life Spirit, Connection Depth, and Courage experience dimensions">
+        <figcaption>Presence Journey: the full loop from choosing an activity to reflecting, updating stats, and surfacing the next challenge. Tiers and experience dimensions shown.</figcaption>
+      </figure>
+
+
+      <p>An especially strong extension of this system is the app's ability to use AI not just to generate generic prompts, but to recommend the right kinds of prompts based on the user's habits, reflection history, and completed activities — surfacing prompts created by other users that fit the way a specific user actually lives. That makes the prompt ecosystem feel alive, social, and personalized at the same time.</p>
+
+      <h2>Activity Design</h2>
+
+      <p>The activities are where the product becomes emotionally vivid. They are meant to feel slightly cinematic, sometimes brave, sometimes playful, sometimes intimate, often memorable — not chores, but prompts toward a fuller life.</p>
+
+      <p><strong>Beginner:</strong> Take a walk outside and say hi to 5 strangers. Go down a slide. Call someone you care about. Cook a healthy meal from scratch. Read 30 pages of a physical book.</p>
+
+      <p><strong>Growing:</strong> Sing as loud as you can in a car. Write a letter to your self for tomorrow. Have a deep conversation with someone at a café. Explore a neighborhood you've never been to. Create something with your hands even if it's small.</p>
+
+      <p><strong>Transforming:</strong> Face a fear that's been holding you back. Start a passion project. Have a conversation that could change a relationship. Visit back home, or someone you haven't seen in a while. Write down how much has changed since starting Be Present.</p>
+
+      <h2>Experience Dimensions</h2>
+
+      <p>The concept uses three experience dimensions to make growth legible: <strong>Life Spirit</strong> (overall present living), <strong>Connection Depth</strong> (social activity and meaningful relational experience), and <strong>Courage</strong> (difficulty, stretch, and willingness to act).</p>
+
+      <p>These stats let the user see what kind of growth is happening, and let the system make better recommendations. They also create a major strategic advantage: because the system is built around concrete user behavior rather than vague self-reporting, Be Present can make unusually clear claims about what is happening inside the app.</p>
+
+      <h2>World Presence</h2>
+
+      <p>World Presence is the most distinctive system in the concept. It turns individual presence into a shared social mission. Users' efforts add up — their actions help illuminate the world with their presence. This changes the emotional logic of the app: my time offline matters, your time offline matters, together presence becomes visible.</p>
+      <figure class="entry-doc-figure">
+        <img src="assets/bp/diagram-3.png" alt="World Presence collective mission loop diagram showing how individual offline sessions feed into world visualization, inspire other users, and scale the challenge instead of ending it">
+        <figcaption>World Presence: individual sessions feed a collective mission that visualizes presence at scale and scales the challenge instead of ending it.</figcaption>
+      </figure>
+
+
+      <p>World Presence creates collective meaning, social inspiration, return motivation, and real-time feedback. It can be visualized in different ways — a globe with activity markers, a world with heat-map style presence, a populated hub world. The underlying logic stays the same: the app makes presence visible at scale. World Presence is not only a good mechanic; it is a strong public-facing story.</p>
+
+      <h2>Social Meaning and Retention</h2>
+
+      <p>The concept's social layer avoids the worst tendencies of social apps while still using social motivation. It does not ask users to perform a polished identity, compare metrics hostilely, or compete for attention. Instead, it asks users to show signs of being alive offline — activity messages, visible friend presence, shared memories, examples of what others are doing, signs of world progress. The key social action is inspiration: when a user's activity is displayed on the world screen, another user can see it and be inspired to start or join in on that offline mission.</p>
+
+      <h2>Memory, Reflection, and Proof</h2>
+
+      <p>MEMORIES is what keeps the app from becoming purely behavioral. Each completed activity leaves behind the fact of completion, a reflection, insight into growth, a place in the larger journey, and potentially a shareable summary. It creates personal proof (the user can look back and see time was used to do things, feel things, and become someone), narrative continuity (the archive turns disconnected sessions into a life path), and shareable meaning (the recap converts private change into cultural proof).</p>
+
+      <h2>Why the Life-Maxxing Framing Works</h2>
+
+      <p>Be Present gains unusual power from borrowing energy from social media's most vivid transformational subcultures while trying to heal the damage caused by social media itself. The concept is not "be efficient" or "reduce distraction" — it is closer to: do brave things, make more memories, become harder to numb out, prove to yourself that life is changing. This is why the project feels culturally current: it understands that many users do not merely want less screen time. They want their lives to feel more real.</p>
+
+      <h2>Why the Concept Has Portfolio Value</h2>
+
+      <p>This work demonstrates <strong>product thinking</strong> (solves a clear market problem), <strong>systems design</strong> (links motivation, action, feedback, sociality, and memory into one coherent loop), <strong>writing and framing</strong> (translates game design thinking into language that speaks to both players and non-game stakeholders), <strong>cultural sensitivity</strong> (recognizes the emotional reality behind screen-time anxiety and responds with a concept that feels contemporary rather than clinical), <strong>interaction vision</strong> (imagines not just features, but the feeling of moving through a product over time), and <strong>marketing potential</strong> (contains an unusually clear story a team could actually sell).</p>
+    </div>
+  </template>
+
+  <!-- 222: Full Case Showcase -->
+  <template id="tpl-222-full">
+    <div class="entry-doc">
+      <header class="entry-doc__masthead">
+        <h1 class="entry-doc__h1" id="entry-doc-h1">222 — Full Case Showcase</h1>
+        <p class="entry-doc__deck">Ethnographic research, UX analysis, and growth work</p>
+        <p class="entry-doc__byline">Alexander Bereck | UX Research · Ethnography · Growth</p>
+      </header>
+
+      <p>222 is a social product centered on in-person encounters with strangers. Rather than building around public profiles, swiping, or endless feeds, it structures real-world nights out: users answer questions, choose a night, and are placed into a restaurant gathering with a small group, followed by a second location where multiple groups converge. My work with 222 began as participation, deepened into ethnographic observation and interviews, and eventually turned into direct growth and strategy work.</p>
+
+      <p>What matters personally is that I genuinely loved 222. It gave me some of my closest friendships, and that gratitude is part of what made the later research and growth work feel so grounded and meaningful.</p>
+
+      <h2>Core Framing</h2>
+
+      <p>A long-form research and then growth role at 222, an alternative social app. I started as a guest attending events, became an embedded ethnographer conducting interviews and fieldwork, and eventually joined the team as a growth specialist helping the platform expand to new cities.</p>
+
+      <p>That arc matters because it began with real affection for the product. The project was built from multiple positions at once: participant, observer, interviewer, strategist. This made it possible to understand 222 from inside the lived experience of the product, rather than only from abstract metrics or external critique. The central question: <strong>What does this app actually do for people, beyond what it claims to do?</strong></p>
+
+      <h2>What 222 Actually Is</h2>
+
+      <p>222 is best understood as a structured discovery tool for in-person connection. An app that curates in-person events where you meet strangers — no public profiles, no feeds, no swiping. You answer questions, pick a night, and show up to a restaurant reservation the app has already arranged. You meet 5–7 people at your table, then move to a second location where groups from across the city converge.</p>
+
+      <p>The app lowers the friction of social initiation by organizing the first move for users. It reduces the cost of reaching out, distributes social effort across a designed night, and helps people access situations they might not have assembled themselves.</p>
+
+      <h2>From Guest to Researcher to Growth</h2>
+
+      <p>Attended 60+ events over a year as participant-observer — dinners with strangers, private tables, afterparties — and conducted interviews with regular users to understand how product design intention became lived user behavior.</p>
+
+      <p>This gave the work unusual texture. Instead of relying only on interviews detached from the product experience, the research was grounded in repetition, immersion, and direct observation. Over time, it became possible to see recurring social patterns, differences between first-time and repeat users, where nights clicked immediately versus built momentum over time, how product design shaped expectation before anyone even arrived, and how users reinterpreted the app in practice.</p>
+
+      <p>The move into growth work mattered because the findings moved directly into practice — informing onboarding, communication strategy, event framing, creator partnerships, and expansion logic.</p>
+
+      <h2>The Main Conceptual Lens: Seeking vs. Attracting</h2>
+
+      <p>The strongest theoretical framework in the project is the distinction between <strong>seeking</strong> and <strong>attracting</strong>. The research examined how apps encode these behaviors, drawing from sociology and product design patterns. Online, even apparently passive presence is still a form of participation.</p>
+
+      <p>Social platforms often present themselves as if users can remain passive and still be chosen, discovered, or desired. In reality, even apparently passive actions online are active bids for attention — posting, curating a profile, updating stories, being visible in the feed are all forms of seeking, even when culturally framed as effortless attraction.</p>
+
+      <p>222 changes that dynamic by making the act of seeking clear and singular: you answer questions, you pick a night, you RSVP, you show up. After that, the structure of the night takes over some of the social labor. It concentrates social effort into one explicit move, then supports what happens next. That insight became strategically useful as a shared evaluative question: <strong>Does a feature make seeking feel more supported, more fluid, and more natural?</strong></p>
+
+      <h2>How 222 Works as a Product</h2>
+
+      <p>The product is doing three things simultaneously: matchmaking at the event and group level, expectation design before arrival, and social choreography through venue progression. The product flow is simple, but the simplicity is deceptive — its structure is doing a great deal of invisible work. A user enters and answers questions, selects a night, the app arranges a reservation, they arrive with 5–7 strangers, and after the first location, groups move into a second-location environment where the experience expands into wider social possibility.</p>
+
+      <h2>What 222 Is Like, Really</h2>
+
+      <p>Some nights the table clicks immediately; other nights unfold more gradually. People come for different reasons — to make new and meaningful connections, to expand their social world, or simply to have a reason to be out. The shared expectation shapes the room, and after 60+ experiences, patterns emerge about who keeps returning and what actually leads to lasting relationships.</p>
+
+      <p>For me, that is not abstract. 222 was one of the rare products that actually delivered on the promise of connection, and a lot of the friendships I value most came directly out of those nights. The work therefore takes seriously the relationship between what the app makes possible, what users want it to be, and what a given night opens up.</p>
+
+      <h2>222 as a Doorway to Third Places</h2>
+
+      <p>In a moment when people are actively looking for new ways into shared spaces, products like 222 can help them re-enter the world of repeated encounters and spontaneous conversation. 222 works especially well as a scaffold toward belonging: it introduces people to one another, to venues, and to city rituals that can become the start of real community.</p>
+
+      <p>This framework is powerful because it helps distinguish what the app can reasonably promise, what it can confidently deliver, which event formats are worth scaling, and how communications should frame outcomes.</p>
+
+      <h2>Interviews and Qualitative Evidence</h2>
+
+      <p>Interview questions focused on when people last made a new friend, whether they use dating apps, and how 222 fits into their social life. Responses ranged from stories about rebuilding social confidence after major life changes to reflections on how intentionality helps turn novelty into depth.</p>
+
+      <p>The interviews became valuable as pattern-finding devices, revealing the relationship between the app's official promise, users' emotional need, and the social structures of the present moment.</p>
+
+      <h2>Growth and Market Work</h2>
+
+      <p>After the study, I joined the team as a growth specialist: turning field insights into changes to onboarding and communication, collaborating with creators, and helping to bring 222 to more global cities. The work extended from interpretation into campaign thinking, market adaptation, creator selection logic, and event framing by city and audience. That is part of what makes the project compelling — it is a study of culture translated into product and growth decisions.</p>
+
+      <h2>What This Project Reveals</h2>
+
+      <p>Part of using 222 exposed me to the fact that I was far from alone in wanting new ways to make friends and form meaningful connections. It reached beyond my small beach town or small private school and connected to a much broader generational reality. To me, it was not just an interesting product for weird times; it was a genuinely effective and generous solution that helped people build real relationships.</p>
+
+      <p>The study revealed that observing how people actually use a product in the real world tells you more about human nature than any survey. That is a methodological statement and a worldview at once — real understanding comes from paying attention to behavior in context, contradiction, and repetition.</p>
+
+      <h2>Why This Is Strong Portfolio Work</h2>
+
+      <p>This project demonstrates <strong>ethnographic method</strong> (grounded in repeated, embodied observation), <strong>conceptual clarity</strong> (the seeking-versus-attracting framework gives the work a memorable and transferable intellectual core), <strong>product understanding</strong> (distinguishes official positioning, designed flow, and lived experience), <strong>qualitative rigor</strong> (field notes, direct participation, and interviews), <strong>strategic translation</strong> (moves from observation to action, informing onboarding, communication, creator strategy, and city-level growth thinking), and <strong>honest cultural analysis</strong> (treats social life, romance, novelty, and belonging as lived realities with textured, specific language).</p>
+
+      <h2>Condensed Definition</h2>
+
+      <p>222 was a long-form ethnographic, UX, and growth project built around an alternative social app that curates in-person nights out with strangers. Beginning as a participant-observer attending 60+ events and evolving into direct interview and growth work, the project examined how the app structured social initiation, how users experienced it in practice, and how product intention became lived behavior. The strongest conceptual frame — seeking versus attracting — made it possible to analyze how digital platforms stage connection and how 222 supported a more embodied and structured social flow.</p>
     </div>
   </template>
 
@@ -4535,6 +4821,15 @@
             'Each module feeds the others: ACT sessions create memories, MEMORIES teach the system what to suggest next, and WORLD gives ambient social proof that other people are making similar choices without turning it into a leaderboard. The progression system scales across three experience dimensions— Life Spirit (presence time), Connection Depth (social activities), and Courage (difficulty)— so users are not chasing a single metric but discovering what kinds of challenges resonate with them. The system tracks both an individual presence percentage (personal step-away time) and a world presence percentage (collective effectiveness), so users see their participation literally illuminates a shared mission.'
           ]
         },
+        'bepresent-journey': {
+          meta: 'BE PRESENT · PROGRESSION',
+          title: 'Presence Journey',
+          tagline: 'A progression path from simple moments to life-changing adventures.',
+          body: [
+            'Presence Journey is the personal progression system inside BePresent. Its job is to make being present feel like a real path, not a one-off task. The structure is progressive: Beginner activities are simple daily moments (take a walk outside and say hi to 5 strangers, go down a slide, call someone you care about, cook a healthy meal from scratch); Growing activities are meaningful experiences (sing as loud as you can in a car, write a letter to your future self, have a deep conversation with someone at a café, explore a neighborhood you’ve never been to); Transforming activities are life-changing adventures (face a fear that’s been holding you back, start a passion project, have a conversation that could change a relationship, write down how much has changed since starting BePresent).',
+            'Activities are not generic wellness tasks—they are meant to feel slightly cinematic, sometimes brave, sometimes playful, sometimes intimate, often memorable. An especially strong extension of this system is the AI layer: the system can learn that a given person responds well to creative, social, brave, local, or reflective prompts, then recommend community-made activities that match those patterns. That makes the prompt ecosystem feel alive, social, and personalized at the same time.'
+          ]
+        },
         'bepresent-individual': {
           meta: 'BE PRESENT · CORE LOOP',
           title: 'ACT · Individual Presence',
@@ -4664,6 +4959,27 @@
           tagline: 'Ethnographic study of semi-structured social products.',
           docMode: true,
           templateId: 'tpl-uxr-222-short'
+        },
+        'showcase-222-full': {
+          meta: '222 · FULL SHOWCASE',
+          title: '222 — Full Case Showcase',
+          tagline: 'From participant-observer to ethnographer to growth specialist.',
+          docMode: true,
+          templateId: 'tpl-222-full'
+        },
+        'showcase-bp-recruiter': {
+          meta: 'BE PRESENT · RECRUITER SUMMARY',
+          title: 'Be Present — Recruiter Summary',
+          tagline: 'Game-forward digital wellness concept.',
+          docMode: true,
+          templateId: 'tpl-bp-recruiter'
+        },
+        'showcase-bp-full': {
+          meta: 'BE PRESENT · FULL SHOWCASE',
+          title: 'Be Present — Full Case Showcase',
+          tagline: 'Product vision, systems design, and the life-maxxing framing.',
+          docMode: true,
+          templateId: 'tpl-bp-full'
         },
         'essay-mourning-doves': {
           meta: 'ESSAY · FEATURED',
