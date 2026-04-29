@@ -2699,6 +2699,180 @@
       margin-bottom: 4px;
     }
 
+    /* More → Tools pill link (e.g. GitHub) */
+    .out-card {
+      position: relative;
+    }
+
+    .out-card__pill {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      font-family: var(--hud);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 7px 10px 6px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.02);
+      color: rgba(255, 255, 255, 0.72);
+      text-decoration: none;
+      border-radius: 999px;
+    }
+
+    /* Prevent pill from overlapping card text (Tools section only) */
+    .work-section .out-card:has(.out-card__pill) h3,
+    .work-section .out-card:has(.out-card__pill) p {
+      padding-right: 84px;
+    }
+
+    .out-card__pill:hover {
+      border-color: rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.04);
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .out-card__pill:focus-visible {
+      outline: 2px solid color-mix(in srgb, var(--accent) 62%, #ffffff 38%);
+      outline-offset: 2px;
+    }
+
+    /* Bird Brain carousel */
+    .bb-carousel {
+      margin: 16px 0 18px;
+      border: 1px solid rgba(80, 96, 132, 0.25);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.22);
+      overflow: hidden;
+    }
+
+    .bb-carousel__track {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 100%;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .bb-carousel__slide {
+      scroll-snap-align: center;
+      display: grid;
+      place-items: center;
+      padding: 12px 10px;
+      background: rgba(0, 0, 0, 0.02);
+      min-height: 170px;
+    }
+
+    .bb-carousel__zoom {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      text-decoration: none;
+    }
+
+    .bb-carousel__zoom img {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 170px;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .bb-carousel__hint {
+      margin-top: 10px;
+      font-family: var(--hud);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(25, 32, 52, 0.62);
+    }
+
+    /* Bird Brain diagrams (smaller than standard entry figures) */
+    .bb-diagram {
+      margin: 0.9rem 0;
+      padding: 0.55rem 0.65rem;
+    }
+
+    .bb-diagram__zoom {
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+    }
+
+    .bb-diagram__zoom img {
+      width: min(210px, 100%);
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.10);
+    }
+
+    /* Override global entry figure img width:100% */
+    .entry-doc-figure.bb-diagram .bb-diagram__zoom img {
+      width: min(210px, 100%) !important;
+    }
+
+    /* Bird Brain Mermaid diagrams */
+    .bb-mermaid {
+      margin: 0.9rem 0;
+      padding: 0.7rem 0.75rem;
+      background: rgba(255, 255, 255, 0.45);
+      border: 1px solid rgba(90, 110, 150, 0.35);
+    }
+
+    .bb-mermaid .mermaid {
+      display: grid;
+      place-items: center;
+    }
+
+    .bb-mermaid svg {
+      max-width: 380px;
+      width: 100%;
+      height: auto;
+    }
+
+    .bb-carousel__controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-top: 1px solid rgba(80, 96, 132, 0.2);
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .bb-carousel__btn {
+      border: 1px solid rgba(80, 96, 132, 0.28);
+      background: rgba(255, 255, 255, 0.35);
+      color: rgba(25, 32, 52, 0.95);
+      font-family: var(--hud);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 9px;
+      padding: 7px 10px 6px;
+      cursor: pointer;
+      border-radius: 999px;
+    }
+
+    .bb-carousel__btn:hover {
+      background: rgba(255, 255, 255, 0.55);
+      border-color: rgba(80, 96, 132, 0.38);
+    }
+
+    .bb-carousel__meta {
+      font-family: var(--hud);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(25, 32, 52, 0.72);
+      margin-left: auto;
+    }
+
     .work-section__desc {
       font-size: 13px;
       line-height: 1.65;
@@ -3007,6 +3181,7 @@
     /* Match hover affordance from Other projects across all datalog cards */
     body[data-theme="datalogs"] .bp-card.js-entry-trigger:hover,
     body[data-theme="datalogs"] .out-card.js-entry-trigger:hover,
+    body[data-theme="datalogs"] a.out-card:hover,
     body[data-theme="datalogs"] .moogle-card.js-entry-trigger:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 32px rgba(0, 80, 70, 0.16);
@@ -3349,8 +3524,9 @@
           -->
           </div>
           <div class="profile-bio">
-            <p>Experience spans independent game development (Birdsong), ethnographic fieldwork (222), and behavioral game systems design (BePresent). I move between research and hands-on development in Unity and Blender.</p>
+            <p>Latest: <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="birdbrain">Bird Brain</a> — my first custom webtool, built alongside Birdsong, using AI to generate a hypertext concept map you can walk like a video game’s branching dialogue tree. It’s designed to be even better when pointed at projects I’m just beginning to learn.</p>
 
+            <p>Experience spans independent game development (Birdsong), ethnographic fieldwork (222), and behavioral game systems design (BePresent). I move between research and hands-on development in Unity and Blender.</p>
           </div>
 
         </div>
@@ -3625,6 +3801,19 @@
             <div class="panel-title">Blog posts and Other projects</div>
             <div class="panel-desc">
               Additional projects updated regularly.
+            </div>
+
+            <div class="work-section">
+              <div class="work-section__label">Tools · Experiments</div>
+              <div class="work-section__desc">Small shipped projects, prototypes, and systems tests.</div>
+              <div class="school-work-cards">
+                <div class="out-card js-entry-trigger" data-entry-id="birdbrain" data-project="tools">
+                  <a class="out-card__pill" href="https://github.com/cocoon360/Birdbrain/tree/main" target="_blank"
+                    rel="noopener noreferrer" data-skip-entry>GitHub</a>
+                  <h3>Bird Brain</h3>
+                  <p>A local-first hypertext project journal that turns any folder into a concept map you can walk <br>like a branching dialogue tree in a video game.</p>
+                </div>
+              </div>
             </div>
 
             <div class="work-section">
@@ -4126,6 +4315,135 @@
     </div>
   </template>
 
+  <!-- Bird Brain: Prototype -->
+  <template id="tpl-birdbrain">
+    <div class="entry-doc">
+      <header class="entry-doc__masthead">
+        <h1 class="entry-doc__h1" id="entry-doc-h1">Bird Brain</h1>
+        <p class="entry-doc__deck">Local-first hypertext concept map for messy project folders</p>
+        <p class="entry-doc__byline">Prototype · 2026</p>
+      </header>
+
+      <p>Over the weekend, the files for the video game I'm working on got so unruly that I built a small tool to help me navigate it.</p>
+
+      <p>It's a local-first hypertextual project journal that turns any folder into a concept map you can walk like a branching dialogue tree in a video game,
+        the kind where picking one option opens up new things to investigate, and picking those new options shifts the state of the scene, affecting how players
+        see the game world in an increasingly personalized lense as the story unfolds.</p>
+
+      <p>Bird Brain turns folders of text and code files into a generative hypertext concept map for active work and research synthesis instead of the traditional
+        linear LLM conversation path. You click a concept, it writes a short page about that concept grounded in the actual files, and every phrase in the page is
+        itself clickable within the 2010's-inspired metro UI: either a link to another concept it already recognizes, or a new one it thinks is worth noticing.
+        Click a new one and it joins the map. As you explore, the folder gradually transforms, offering a new perspective on itself with each interaction.</p>
+
+      <div class="bb-carousel" data-bb-carousel>
+        <div class="bb-carousel__track" data-bb-track>
+          <div class="bb-carousel__slide">
+            <a class="bb-carousel__zoom" href="photos/Screenshot%202026-04-28%20at%2011.13.56%E2%80%AFAM.png" target="_blank"
+              rel="noopener noreferrer" data-skip-entry>
+              <img src="photos/Screenshot%202026-04-28%20at%2011.13.56%E2%80%AFAM.png" alt="Bird Brain screenshot 1" loading="lazy">
+              <span class="bb-carousel__hint">Click to expand</span>
+            </a>
+          </div>
+          <div class="bb-carousel__slide">
+            <a class="bb-carousel__zoom" href="photos/Screenshot%202026-04-28%20at%2011.14.16%E2%80%AFAM.png" target="_blank"
+              rel="noopener noreferrer" data-skip-entry>
+              <img src="photos/Screenshot%202026-04-28%20at%2011.14.16%E2%80%AFAM.png" alt="Bird Brain screenshot 2" loading="lazy">
+              <span class="bb-carousel__hint">Click to expand</span>
+            </a>
+          </div>
+          <div class="bb-carousel__slide">
+            <a class="bb-carousel__zoom" href="photos/Screenshot%202026-04-28%20at%2011.15.59%E2%80%AFAM.png" target="_blank"
+              rel="noopener noreferrer" data-skip-entry>
+              <img src="photos/Screenshot%202026-04-28%20at%2011.15.59%E2%80%AFAM.png" alt="Bird Brain screenshot 3" loading="lazy">
+              <span class="bb-carousel__hint">Click to expand</span>
+            </a>
+          </div>
+          <div class="bb-carousel__slide">
+            <a class="bb-carousel__zoom" href="photos/Screenshot%202026-04-28%20at%2011.18.01%E2%80%AFAM.png" target="_blank"
+              rel="noopener noreferrer" data-skip-entry>
+              <img src="photos/Screenshot%202026-04-28%20at%2011.18.01%E2%80%AFAM.png" alt="Bird Brain screenshot 4" loading="lazy">
+              <span class="bb-carousel__hint">Click to expand</span>
+            </a>
+          </div>
+          <div class="bb-carousel__slide">
+            <a class="bb-carousel__zoom" href="photos/birdbrain-hub-engine.png" target="_blank"
+              rel="noopener noreferrer" data-skip-entry>
+              <img src="photos/birdbrain-hub-engine.png" alt="Bird Brain screenshot 5" loading="lazy">
+              <span class="bb-carousel__hint">Click to expand</span>
+            </a>
+          </div>
+        </div>
+        <div class="bb-carousel__controls">
+          <button type="button" class="bb-carousel__btn" data-bb-prev>Prev</button>
+          <button type="button" class="bb-carousel__btn" data-bb-next>Next</button>
+          <span class="bb-carousel__meta" data-bb-meta>1 / 5</span>
+        </div>
+      </div>
+
+      <h2>How it works</h2>
+      <div class="bb-mermaid">
+        <div class="mermaid">
+flowchart TD
+    A[Your folder] --> B[Bird Brain reads the files]
+    B --> C[Builds a starter concept map]
+    C --> D[You click a concept]
+    D --> E[Opens a grounded linked brief]
+    E --> F[Page phrases become clickable]
+    F -->|Known concept| D
+    F -->|New phrase| G[New concept joins the map]
+    G --> C
+    E --> H[Journal notes what you keep circling]
+    H -.-> C
+
+    style A fill:#f4f0e8,stroke:#8a7f6a,color:#2a2a2a
+    style G fill:#e8f0f4,stroke:#6a8799,color:#2a2a2a
+    style H fill:#f4e8ee,stroke:#996a81,color:#2a2a2a
+        </div>
+      </div>
+
+      <h2>Under the hood</h2>
+      <div class="bb-mermaid">
+        <div class="mermaid">
+flowchart TB
+  folder[Project folder]
+  ingest[Ingest readable files and code]
+  projectMap[Project map and starter topics]
+  concept[User opens concept]
+  precontext[Cached precontext for this topic]
+  linked[Default linked brief]
+  dossier[Optional full dossier rewrite]
+  cache[Cache output by corpus signature]
+  ui[Display dossier drawer]
+
+  folder --> ingest
+  ingest --> projectMap
+  projectMap --> concept
+  concept --> precontext
+  precontext --> linked
+  precontext --> dossier
+  linked --> cache
+  dossier --> cache
+  cache --> ui
+        </div>
+      </div>
+
+      <p>Nothing about my game is baked into the engine, it works with any project folder and it does the same thing. It's just that the inspiration material
+        happens to be my own, Bird Brain is a new interactive way to see the abstract and messy archive I already have and turn it into something so easy for me
+        and my collaborators to work with. But it's pointing the tool at a project I'm just beginning to learn about when the tool is at its best.</p>
+
+      <p>Bird Brain is designed to help you experience project files through a fresh lens. Instead of presenting a static summary, it adapts and reorganizes what
+        you see based on the pathways you follow and the concepts you engage with. The map it builds isn’t hardcoded: it emerges entirely from your ongoing
+        interactions with the material. As you explore and click through ideas, your personal journey shapes a unique perspective, one that grows more relevant
+        and meaningful the more you use it. Over time, it becomes a living reflection of your attention and curiosity and relationship to the project you're
+        working on.</p>
+
+      <p>Everything is local— the files, the generated pages, and the map all live on your machine. It also works with any LLM (including Cursor CLI and Ollama)
+        using your own subscription keys. Let me know if you'd like to try it out!</p>
+
+      <p><a href="https://github.com/cocoon360/Birdbrain/tree/main" target="_blank" rel="noopener noreferrer" data-skip-entry>View on GitHub →</a></p>
+    </div>
+  </template>
+
   <!-- 222: Full Case Showcase -->
   <template id="tpl-222-full">
     <div class="entry-doc">
@@ -4469,6 +4787,7 @@
     </div>
   </template>
 
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <script>
     (function () {
       const body = document.body;
@@ -4626,6 +4945,13 @@
       }
 
       const ENTRY_DATA = {
+        birdbrain: {
+          meta: 'TOOLS · PROTOTYPE',
+          title: 'Bird Brain',
+          tagline: 'Local-first hypertext concept map for project folders.',
+          docMode: true,
+          templateId: 'tpl-birdbrain'
+        },
         'umwelten-overview': {
           meta: 'UMWELTEN · OVERVIEW',
           title: 'Umwelten',
@@ -5079,6 +5405,25 @@
         entryExtraMeta.hidden = true;
         overlay.classList.add('active');
         overlay.setAttribute('aria-hidden', 'false');
+
+        // Render Mermaid diagrams inside newly-inserted content (if any)
+        const mermaidApi = window.mermaid;
+        try {
+          if (mermaidApi && entryBody && entryBody.querySelector('.mermaid')) {
+            // Initialize once; safe to call repeatedly
+            if (!mermaidApi.__birdbrainInit) {
+              mermaidApi.initialize({ startOnLoad: false, securityLevel: 'strict' });
+              mermaidApi.__birdbrainInit = true;
+            }
+            const nodes = entryBody.querySelectorAll('.mermaid');
+            // Newer versions prefer run(); older use init()
+            if (typeof mermaidApi.run === 'function') {
+              mermaidApi.run({ nodes: Array.from(nodes) });
+            } else if (typeof mermaidApi.init === 'function') {
+              mermaidApi.init(undefined, nodes);
+            }
+          }
+        } catch (_) { }
       }
 
       function closeEntry() {
@@ -5088,6 +5433,7 @@
       }
 
       document.addEventListener('click', (e) => {
+        if (e.target.closest('[data-skip-entry]')) return;
         const trigger = e.target.closest('.js-entry-trigger');
         if (trigger && trigger.dataset.entryId) {
           e.preventDefault();
@@ -5132,6 +5478,44 @@
           if (targetId) openEntry(targetId);
         }
       });
+
+      function updateBirdbrainCarouselMeta(root) {
+        const track = root?.querySelector('[data-bb-track]');
+        const meta = root?.querySelector('[data-bb-meta]');
+        if (!track || !meta) return;
+        const slideWidth = track.clientWidth || 1;
+        const idx = Math.round(track.scrollLeft / slideWidth);
+        const total = track.children?.length || 0;
+        meta.textContent = `${Math.min(idx + 1, total)} / ${total}`;
+      }
+
+      function scrollBirdbrainCarousel(root, dir) {
+        const track = root?.querySelector('[data-bb-track]');
+        if (!track) return;
+        const slideWidth = track.clientWidth || 0;
+        track.scrollBy({ left: dir * slideWidth, behavior: 'smooth' });
+        window.setTimeout(() => updateBirdbrainCarouselMeta(root), 180);
+      }
+
+      document.addEventListener('click', (e) => {
+        const carousel = e.target.closest('[data-bb-carousel]');
+        if (!carousel) return;
+        if (e.target.closest('[data-bb-prev]')) {
+          e.preventDefault();
+          scrollBirdbrainCarousel(carousel, -1);
+        } else if (e.target.closest('[data-bb-next]')) {
+          e.preventDefault();
+          scrollBirdbrainCarousel(carousel, 1);
+        }
+      });
+
+      document.addEventListener('scroll', (e) => {
+        const track = e.target?.closest?.('[data-bb-track]');
+        if (!track) return;
+        const carousel = track.closest('[data-bb-carousel]');
+        if (!carousel) return;
+        updateBirdbrainCarouselMeta(carousel);
+      }, true);
     })();
   </script>
 
