@@ -1808,6 +1808,12 @@
       font-style: italic;
     }
 
+    .profile-latest-link {
+      color: rgba(244, 216, 113, 0.75);
+      font-style: italic;
+      text-decoration-color: rgba(244, 216, 113, 0.55);
+    }
+
     .profile-hero-portrait {
       display: none;
     }
@@ -2707,7 +2713,7 @@
     .out-card__pill {
       position: absolute;
       top: 50%;
-      right: 0;
+      right: 5%;
       transform: translateY(-50%);
       font-family: var(--hud);
       font-size: 9px;
@@ -3172,6 +3178,13 @@
       color: color-mix(in srgb, var(--accent) 78%, #ffffff 22%);
     }
 
+    .hyperlink-trigger.profile-latest-link,
+    .hyperlink-trigger.profile-latest-link:hover {
+      color: rgba(244, 216, 113, 0.75);
+      font-style: italic;
+      text-decoration-color: rgba(244, 216, 113, 0.55);
+    }
+
     .hyperlink-trigger:focus-visible {
       outline: 2px solid color-mix(in srgb, var(--accent) 65%, #ffffff 35%);
       outline-offset: 2px;
@@ -3503,16 +3516,16 @@
           <header class="profile-hero">
             <div class="profile-hero-text">
               <h1 class="profile-name">Alexander Bereck</h1>
-              <p class="profile-tagline">Game designer and developer focused on narrative systems and player memories.</p>
+              <p class="profile-tagline">Game developer, designer, and researcher focused on narrative systems, AI tools, player memories, and how we make sense of complex worlds.</p>
               <div class="profile-mobile-spacer"></div>
-              <p class="profile-currently">Currently: Developing Birdsong in Unity. Open to new roles in game design and development.</p>
+              <p class="profile-currently">Currently: Developing Birdsong in Unity and Bird Brain, an AI hypertext tool for navigating project archives. Open to roles in product, research, AI tools, and game systems.</p>
             </div>
             <!--<div class="profile-hero-portrait datalog-portrait">
           <div class="portrait-label">Alexander Bereck</div>
         </div>-->
           </header>
           <div class="profile-bio">
-            <h3>How I work</h3>
+            <h3><br>How I work</h3>
             <p>
             I design games as <em>umwelten</em>, perceptual worlds that are there to make us notice, feel, and become. <br><br>
               Combining literary analysis with user research builds what our reality doesn't provide: experiences where
@@ -3524,7 +3537,7 @@
           -->
           </div>
           <div class="profile-bio">
-            <p>Latest: <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="birdbrain">Bird Brain</a> — my first custom webtool, built alongside Birdsong, using AI to generate a hypertext concept map you can walk like a video game’s branching dialogue tree. It’s designed to be even better when pointed at projects I’m just beginning to learn.</p>
+            <p>Latest: <a href="#" class="js-entry-trigger hyperlink-trigger profile-latest-link" data-entry-id="birdbrain">Bird Brain</a> — my first custom webtool, built alongside Birdsong, using AI to generate a hypertext concept map you can explore like a video game’s branching dialogue tree. It’s designed to be even better when pointed at projects I’m just beginning to learn.</p>
 
             <p>Experience spans independent game development (Birdsong), ethnographic fieldwork (222), and behavioral game systems design (BePresent). I move between research and hands-on development in Unity and Blender.</p>
           </div>
@@ -3611,6 +3624,13 @@
                 <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="essay-mourning-doves">Mourning doves and Melody of Memory</a>.
                 Since then, I translated it into building worlds of my own where mechanics, environments, and story are structured
                 <a href="#" class="js-entry-trigger hyperlink-trigger" data-entry-id="umwelten-method">like the way you move through your real life</a>.
+              </p>
+              <p>
+                But <em>umwelten</em>, to me, is not only about Romantic poetry or video games. It is a language for digital
+                media, tools, places, relationships, and everything else that shapes how a person notices the world. I am not
+                trying to force life into a semiotic framework; I keep returning to this language because it resembles my own
+                passion and philosophy: the belief that every medium, system, and environment teaches us a way of paying
+                attention.
               </p>
               <p>
                 Birdsong is the game I’m making as my own answer to this thread. It’s a third-person single-player mystery adventure
@@ -3811,7 +3831,7 @@
                   <a class="out-card__pill" href="https://github.com/cocoon360/Birdbrain/tree/main" target="_blank"
                     rel="noopener noreferrer" data-skip-entry>GitHub</a>
                   <h3>Bird Brain</h3>
-                  <p>A local-first hypertext project journal that turns any folder into a concept map you can walk <br>like a branching dialogue tree in a video game.</p>
+                  <p>A local-first hypertext project journal that turns any folder into a concept map you can explore <br>like a branching dialogue tree in a video game.</p>
                 </div>
               </div>
             </div>
@@ -4326,7 +4346,7 @@
 
       <p>Over the weekend, the files for the video game I'm working on got so unruly that I built a small tool to help me navigate it.</p>
 
-      <p>It's a local-first hypertextual project journal that turns any folder into a concept map you can walk like a branching dialogue tree in a video game,
+      <p>It's a local-first hypertextual project journal that turns any folder into a concept map you can explore like a branching dialogue tree in a video game,
         the kind where picking one option opens up new things to investigate, and picking those new options shifts the state of the scene, affecting how players
         see the game world in an increasingly personalized lense as the story unfolds.</p>
 
